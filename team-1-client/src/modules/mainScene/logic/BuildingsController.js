@@ -234,12 +234,17 @@ var BuildingsController = cc.Class.extend({
     },
 
     restoreActiveBuildingZOrderIfModified: function (mainUIInstance, building) {
-        var target = building || mainUIInstance.activeBuilding;
-        if (target && target.compositeNode &&
-            target.config && target.config.type !== 'obstacle') {
-            if (target.compositeNode.getLocalZOrder() === SELECTED_BUILDING_Z_ORDER) {
-                var zOrder = MAX_Z_ORDER - (40 * target.posX + target.posY);
-                target.compositeNode.setLocalZOrder(zOrder);
+        if (building.config.type !== 'obstacle') {
+            if (building.compositeNode.getLocalZOrder() === SELECTED_BUILDING_Z_ORDER) {
+                let zOrder;
+                if (building.buildingType.startsWith("AMC")) {
+                    zOrder = GRID_BASE_Z_ORDER + 1;
+                } else {
+                    var coreX = building.posX + building.config.size.width / 2;
+                    var coreY = building.posY + building.config.size.height / 2;
+                    zOrder = MAX_Z_ORDER - (coreY * 40 + coreX);
+                }
+                building.compositeNode.setLocalZOrder(zOrder);
             }
         }
     },

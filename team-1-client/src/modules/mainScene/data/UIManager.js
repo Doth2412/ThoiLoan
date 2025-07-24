@@ -296,7 +296,7 @@ var UIManager = cc.Layer.extend({
         }
         troop.gridX = gridPos.x;
         troop.gridY = gridPos.y;
-        const newZOrder = MAX_Z_ORDER - (40 * gridPos.x + gridPos.y);
+        const newZOrder = MAX_Z_ORDER - (40 * gridPos.y + gridPos.x);
         troop.setLocalZOrder(newZOrder);
     },
 

@@ -175,7 +175,12 @@ var BuildingsManager = cc.Class.extend({
 
         var coreX = building.posX + config.size.width / 2;
         var coreY = building.posY + config.size.height / 2;
-        let zOrder = MAX_Z_ORDER - (40 * coreX + coreY);
+        let zOrder;
+        if (building.buildingType.startsWith("AMC")) {
+            zOrder = GRID_BASE_Z_ORDER + 1;
+        } else {
+            zOrder = MAX_Z_ORDER - (coreY * 40 + coreX);
+        }
 
         compositeNode.setPosition(screenPos);
         compositeNode.setLocalZOrder(zOrder);
@@ -308,7 +313,7 @@ var BuildingsManager = cc.Class.extend({
         obstacle.selectionIndicator = selectionIndicator;
         var coreX = obstacle.posX + config.size.width / 2;
         var coreY = obstacle.posY + config.size.height / 2;
-        let zOrder = MAX_Z_ORDER - (40 * coreX + coreY);
+        let zOrder = MAX_Z_ORDER - (coreY * 40 + coreX);
         compositeNode.setPosition(screenPos);
         compositeNode.setLocalZOrder(zOrder);
         obstacleBaseSprite.setAnchorPoint(0.5, 0);
@@ -423,7 +428,15 @@ var BuildingsManager = cc.Class.extend({
                 foundBuilding.config.size.height
             );
         }
-        var newZOrder = MAX_Z_ORDER - (40 * foundBuilding.posX + foundBuilding.posY);
+        var config = foundBuilding.config;
+        var coreX = foundBuilding.posX + config.size.width / 2;
+        var coreY = foundBuilding.posY + config.size.height / 2;
+        var newZOrder;
+        if (foundBuilding.buildingType.startsWith("AMC")) {
+            newZOrder = GRID_BASE_Z_ORDER + 1;
+        } else {
+            newZOrder = MAX_Z_ORDER - (coreY * 40 + coreX);
+        }
         foundBuilding.compositeNode.setLocalZOrder(newZOrder);
         if (foundBuilding.buildingType.indexOf("AMC") === 0) {
             cc.eventManager.dispatchCustomEvent("ARMY_CAMP_MOVED", { building: foundBuilding });
