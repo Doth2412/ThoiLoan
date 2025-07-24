@@ -1,0 +1,28 @@
+{
+  "defenceBattle": {
+    "DEF_1": {
+      "min_attack_range": 0,
+      "max_attack_range": 9,
+      "attack_speed": 0.8,
+      "splash_radius": 0,
+      "favorite_target": 1,
+      "damage_type": 1
+    },
+    "DEF_2": {
+      "min_attack_range": 0,
+      "max_attack_range": 10,
+      "attack_speed": 1,
+      "splash_radius": 0,
+      "favorite_target": 3,
+      "damage_type": 1
+    },
+    "DEF_3": {
+      "min_attack_range": 4,
+      "max_attack_range": 11,
+      "attack_speed": 5,
+      "splash_radius": 1.5,
+      "favorite_target": 1,
+      "damage_type": 3
+    }
+  }
+}

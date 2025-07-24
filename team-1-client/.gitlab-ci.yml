@@ -1,0 +1,4 @@
+include:
+  - project: 'gdf-2025-hcm/gdf2025cicd'
+    file: '/.gitlab-ci.yml'
+    ref: 'main'

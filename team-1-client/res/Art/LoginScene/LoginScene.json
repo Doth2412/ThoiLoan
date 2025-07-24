@@ -1,0 +1,272 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "LoginScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FontSize": 22,
+            "ButtonText": "Button",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+              "Plist": ""
+            },
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Art/okbutton.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 88,
+            "Scale9Height": 22,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 660.0,
+              "Y": 320.0
+            },
+            "Scale": {
+              "ScaleX": 1.2,
+              "ScaleY": 1.2
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6875,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.1229,
+              "Y": 0.0688
+            },
+            "LeftMargin": 601.0,
+            "RightMargin": 241.0,
+            "TopMargin": 298.0,
+            "BottomMargin": 298.0,
+            "Tag": 8,
+            "ActionTag": -1356536430,
+            "Size": {
+              "X": 118.0,
+              "Y": 44.0
+            },
+            "Name": "loginButton",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 24,
+            "LabelText": "Loading 100%",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "OutlineEnabled": true,
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 44,
+              "G": 203,
+              "B": 44
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.375
+            },
+            "PreSize": {
+              "X": 0.1479,
+              "Y": 0.0484
+            },
+            "LeftMargin": 409.0,
+            "RightMargin": 409.0,
+            "TopMargin": 384.5,
+            "BottomMargin": 224.5,
+            "Tag": 9,
+            "ActionTag": 1617749603,
+            "Size": {
+              "X": 142.0,
+              "Y": 31.0
+            },
+            "Name": "loadingText",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/g_background.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 45,
+            "Scale9OriginY": 13,
+            "Scale9Width": 48,
+            "Scale9Height": 16,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 478.7112,
+              "Y": 320.0
+            },
+            "Scale": {
+              "ScaleX": 1.4,
+              "ScaleY": 1.4
+            },
+            "RotationSkewX": 180.0,
+            "RotationSkewY": 180.0,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4987,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.1437,
+              "Y": 0.0656
+            },
+            "LeftMargin": 409.7112,
+            "RightMargin": 412.2888,
+            "TopMargin": 299.0,
+            "BottomMargin": 299.0,
+            "Tag": 6,
+            "Children": [
+              {
+                "FontSize": 22,
+                "IsCustomSize": true,
+                "LabelText": "",
+                "PlaceHolderText": "Username",
+                "MaxLengthText": 10,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 69.0,
+                  "Y": 22.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": 180.0,
+                "RotationSkewY": 180.0,
+                "CColor": {
+                  "R": 0,
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5238
+                },
+                "PreSize": {
+                  "X": 0.8696,
+                  "Y": 0.5476
+                },
+                "LeftMargin": 9.0,
+                "RightMargin": 9.0,
+                "TopMargin": 8.5,
+                "BottomMargin": 10.5,
+                "Tag": 18,
+                "ActionTag": 691650803,
+                "Size": {
+                  "X": 120.0,
+                  "Y": 23.0
+                },
+                "Name": "textField",
+                "ctype": "TextFieldObjectData"
+              }
+            ],
+            "ActionTag": -221429012,
+            "Size": {
+              "X": 138.0,
+              "Y": 42.0
+            },
+            "Name": "textFieldBackGround",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Art/g_background.png",
+        "Art/loading.jpg",
+        "Art/okbutton.png",
+        "Default/Button_Disable.png",
+        "Default/Button_Press.png",
+        "Fonts/UTM_Swiss_721_Black_Condensed.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

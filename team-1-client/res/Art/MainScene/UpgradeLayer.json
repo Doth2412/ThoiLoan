@@ -1,0 +1,1100 @@
+{
+  "ID": "7ef87784-b907-4524-8bbb-3c802b3a6129",
+  "Version": "3.10.0.0",
+  "Name": "UpgradeLayer",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 119,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/GUIs/upgrade_building_gui/BG.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 24,
+            "Scale9OriginY": 15,
+            "Scale9Width": 343,
+            "Scale9Height": 243,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 320.0
+            },
+            "Scale": {
+              "ScaleX": 2.0,
+              "ScaleY": 2.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.4073,
+              "Y": 0.4266
+            },
+            "LeftMargin": 284.5,
+            "RightMargin": 284.5,
+            "TopMargin": 183.5,
+            "BottomMargin": 183.5,
+            "Tag": 121,
+            "Children": [
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 196.282,
+                  "Y": 252.0063
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.502,
+                  "Y": 0.9231
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 0.9,
+                  "Y": 0.15
+                },
+                "LeftMargin": 20.332,
+                "RightMargin": 18.768,
+                "TopMargin": 0.5187,
+                "BottomMargin": 231.5313,
+                "Tag": 122,
+                "Children": [
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Disable.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "Art/GUIs/button2/cancel2.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "Art/GUIs/upgrade_building_gui/close.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 17,
+                    "Scale9Height": 25,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 323.748,
+                      "Y": 19.2465
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.92,
+                      "Y": 0.47
+                    },
+                    "PreSize": {
+                      "X": 0.1336,
+                      "Y": 1.1477
+                    },
+                    "LeftMargin": 300.248,
+                    "RightMargin": 4.652,
+                    "TopMargin": -1.7965,
+                    "BottomMargin": -4.2535,
+                    "Tag": 123,
+                    "ActionTag": -1740736801,
+                    "Size": {
+                      "X": 47.0,
+                      "Y": 47.0
+                    },
+                    "Name": "closeButton",
+                    "ctype": "ButtonObjectData"
+                  },
+                  {
+                    "FontSize": 20,
+                    "LabelText": "Nâng lên cấp",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "R": 0,
+                      "G": 0,
+                      "B": 0
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 175.95,
+                      "Y": 20.475
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.3154,
+                      "Y": 0.6349
+                    },
+                    "LeftMargin": 120.45,
+                    "RightMargin": 120.45,
+                    "TopMargin": 7.475,
+                    "BottomMargin": 7.475,
+                    "Tag": 127,
+                    "ActionTag": -1420177932,
+                    "Size": {
+                      "X": 111.0,
+                      "Y": 26.0
+                    },
+                    "Name": "upgradeLabel",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": -1008750805,
+                "Size": {
+                  "X": 351.9,
+                  "Y": 40.95
+                },
+                "Name": "topViewPanel",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 97.75,
+                  "Y": 177.45
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.25,
+                  "Y": 0.65
+                },
+                "PercentWidthEnable": true,
+                "PercentWidthEnabled": true,
+                "PreSize": {
+                  "X": 0.45,
+                  "Y": 0.3663
+                },
+                "LeftMargin": 9.775,
+                "RightMargin": 205.275,
+                "TopMargin": 45.55,
+                "BottomMargin": 127.45,
+                "Tag": 123,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/Map/map_obj_bg/BG_0/3.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 37,
+                    "Scale9OriginY": 28,
+                    "Scale9Width": 40,
+                    "Scale9Height": 30,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 87.975,
+                      "Y": 50.0
+                    },
+                    "Scale": {
+                      "ScaleX": 0.75,
+                      "ScaleY": 0.75
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.6479,
+                      "Y": 0.86
+                    },
+                    "LeftMargin": 30.975,
+                    "RightMargin": 30.975,
+                    "TopMargin": 7.0,
+                    "BottomMargin": 7.0,
+                    "Tag": 135,
+                    "ActionTag": 1293580027,
+                    "Size": {
+                      "X": 114.0,
+                      "Y": 86.0
+                    },
+                    "Name": "previewBase",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/Buildings/elixir collector/RES_2_1/idle/image0000.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 89,
+                    "Scale9OriginY": 89,
+                    "Scale9Width": 92,
+                    "Scale9Height": 92,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 87.975,
+                      "Y": 50.0
+                    },
+                    "Scale": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 1.5345,
+                      "Y": 2.7
+                    },
+                    "LeftMargin": -47.025,
+                    "RightMargin": -47.025,
+                    "TopMargin": -85.0,
+                    "BottomMargin": -85.0,
+                    "Tag": 128,
+                    "ActionTag": -1705676442,
+                    "Size": {
+                      "X": 270.0,
+                      "Y": 270.0
+                    },
+                    "Name": "previewImage",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/Buildings/elixir collector/RES_2_1/attack01/image0000.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 89,
+                    "Scale9OriginY": 89,
+                    "Scale9Width": 92,
+                    "Scale9Height": 92,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 87.975,
+                      "Y": 50.0
+                    },
+                    "Scale": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 1.5345,
+                      "Y": 2.7
+                    },
+                    "LeftMargin": -47.025,
+                    "RightMargin": -47.025,
+                    "TopMargin": -85.0,
+                    "BottomMargin": -85.0,
+                    "Tag": 130,
+                    "ActionTag": 863084332,
+                    "Size": {
+                      "X": 270.0,
+                      "Y": 270.0
+                    },
+                    "Name": "previewAnim",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FontSize": 14,
+                    "LabelText": "Thời gian nâng cấp",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "R": 0,
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 87.975,
+                      "Y": 20.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 165,
+                      "G": 42,
+                      "B": 42
+                    },
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.2
+                    },
+                    "PreSize": {
+                      "X": 0.6309,
+                      "Y": 0.17
+                    },
+                    "LeftMargin": 32.475,
+                    "RightMargin": 32.475,
+                    "TopMargin": 71.5,
+                    "BottomMargin": 11.5,
+                    "Tag": 133,
+                    "ActionTag": -180314379,
+                    "Size": {
+                      "X": 111.0,
+                      "Y": 17.0
+                    },
+                    "Name": "timeToUpgradeLabel",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FontSize": 20,
+                    "LabelText": "10d",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "R": 165,
+                      "G": 42,
+                      "B": 42
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 87.975,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.1876,
+                      "Y": 0.26
+                    },
+                    "LeftMargin": 71.475,
+                    "RightMargin": 71.475,
+                    "TopMargin": 87.0,
+                    "BottomMargin": -13.0,
+                    "Tag": 134,
+                    "ActionTag": 1203032871,
+                    "Size": {
+                      "X": 33.0,
+                      "Y": 26.0
+                    },
+                    "Name": "timeToUpgradeText",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": 1513327605,
+                "Size": {
+                  "X": 175.95,
+                  "Y": 100.0
+                },
+                "Name": "informationLeftPanel",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "InnerNodeSize": {
+                  "Width": 200,
+                  "Height": 300
+                },
+                "ScrollDirectionType": "Horizontal",
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "G": 150,
+                  "B": 100
+                },
+                "FirstColor": {
+                  "G": 150,
+                  "B": 100
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 273.7,
+                  "Y": 163.8
+                },
+                "Scale": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.7,
+                  "Y": 0.6
+                },
+                "PreSize": {
+                  "X": 0.5115,
+                  "Y": 0.7326
+                },
+                "LeftMargin": 173.7,
+                "RightMargin": 17.3,
+                "TopMargin": 9.2,
+                "BottomMargin": 63.8,
+                "Tag": 146,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/GUIs/upgrade_building_gui/info_bar.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 102,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 107,
+                    "Scale9Height": 14,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 100.0,
+                      "Y": 270.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.9
+                    },
+                    "PreSize": {
+                      "X": 1.555,
+                      "Y": 0.12
+                    },
+                    "LeftMargin": -55.5,
+                    "RightMargin": -55.5,
+                    "TopMargin": 12.0,
+                    "BottomMargin": 252.0,
+                    "Tag": 20,
+                    "Children": [
+                      {
+                        "ProgressInfo": 100,
+                        "ImageFileData": {
+                          "Type": "Normal",
+                          "Path": "Art/GUIs/upgrade_building_gui/info_bar_BG.png",
+                          "Plist": ""
+                        },
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 155.5,
+                          "Y": 18.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 1.0,
+                          "Y": 1.0
+                        },
+                        "Tag": 141,
+                        "ActionTag": -1212518697,
+                        "Size": {
+                          "X": 311.0,
+                          "Y": 36.0
+                        },
+                        "Name": "barFill",
+                        "ctype": "LoadingBarObjectData"
+                      },
+                      {
+                        "FontSize": 25,
+                        "LabelText": "Sức chứa:",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                          "Plist": ""
+                        },
+                        "OutlineColor": {
+                          "R": 0,
+                          "G": 128,
+                          "B": 0
+                        },
+                        "OutlineEnabled": true,
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 155.5,
+                          "Y": 39.6
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 1.1
+                        },
+                        "PreSize": {
+                          "X": 0.3215,
+                          "Y": 0.8889
+                        },
+                        "LeftMargin": 105.5,
+                        "RightMargin": 105.5,
+                        "TopMargin": -19.6,
+                        "BottomMargin": 23.6,
+                        "Tag": 144,
+                        "ActionTag": 1671845487,
+                        "Size": {
+                          "X": 100.0,
+                          "Y": 32.0
+                        },
+                        "Name": "text",
+                        "ctype": "TextObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Art/GUIs/upgrade_building_gui/small/Gold_Capacity_Icon.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 14,
+                        "Scale9OriginY": 13,
+                        "Scale9Width": 17,
+                        "Scale9Height": 14,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": -31.1,
+                          "Y": 18.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": -0.1,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.1447,
+                          "Y": 1.1111
+                        },
+                        "LeftMargin": -53.6,
+                        "RightMargin": 319.6,
+                        "TopMargin": -2.0,
+                        "BottomMargin": -2.0,
+                        "Tag": 138,
+                        "ActionTag": 1787966969,
+                        "Size": {
+                          "X": 45.0,
+                          "Y": 40.0
+                        },
+                        "Name": "icon",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": 1371350941,
+                    "Size": {
+                      "X": 311.0,
+                      "Y": 36.0
+                    },
+                    "Name": "barBackGround",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 1407958307,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "informationRightPanel",
+                "ctype": "ScrollViewObjectData"
+              }
+            ],
+            "ActionTag": 1701406668,
+            "Size": {
+              "X": 391.0,
+              "Y": 273.0
+            },
+            "Name": "backGroundImage",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Art/GUIs/upgrade_building_gui/button.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 134,
+            "Scale9Height": 45,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 128.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.2
+            },
+            "PreSize": {
+              "X": 0.1708,
+              "Y": 0.1047
+            },
+            "LeftMargin": 398.0,
+            "RightMargin": 398.0,
+            "TopMargin": 478.5,
+            "BottomMargin": 94.5,
+            "Tag": 150,
+            "Children": [
+              {
+                "FontSize": 25,
+                "LabelText": "12345",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "R": 0,
+                  "G": 0,
+                  "B": 0
+                },
+                "OutlineEnabled": true,
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "ShadowEnabled": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 65.6,
+                  "Y": 33.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.4,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.4146,
+                  "Y": 0.4776
+                },
+                "LeftMargin": 31.6,
+                "RightMargin": 64.4,
+                "TopMargin": 17.5,
+                "BottomMargin": 17.5,
+                "Tag": 153,
+                "ActionTag": -449538997,
+                "Size": {
+                  "X": 68.0,
+                  "Y": 32.0
+                },
+                "Name": "costAmountText",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Art/GUIs/upgrade_building_gui/gold_icon.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 9,
+                "Scale9OriginY": 9,
+                "Scale9Width": 10,
+                "Scale9Height": 12,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 131.2,
+                  "Y": 33.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.8,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.1707,
+                  "Y": 0.4478
+                },
+                "LeftMargin": 117.2,
+                "RightMargin": 18.8,
+                "TopMargin": 18.5,
+                "BottomMargin": 18.5,
+                "Tag": 154,
+                "ActionTag": -1300719412,
+                "Size": {
+                  "X": 28.0,
+                  "Y": 30.0
+                },
+                "Name": "costResourceImage",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": -564138779,
+            "Size": {
+              "X": 164.0,
+              "Y": 67.0
+            },
+            "Name": "confirmUpgradeButton",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/GUIs/upgrade_building_gui/demo.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -463.9894,
+              "Y": 349.7976
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.4833,
+              "Y": 0.5466
+            },
+            "PreSize": {
+              "X": 0.8417,
+              "Y": 0.7625
+            },
+            "LeftMargin": -867.9894,
+            "RightMargin": 1019.9894,
+            "TopMargin": 46.2024,
+            "BottomMargin": 105.7976,
+            "Tag": 129,
+            "ActionTag": 1553954919,
+            "Size": {
+              "X": 808.0,
+              "Y": 488.0
+            },
+            "Name": "demo_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Art/Buildings/elixir collector/RES_2_1/attack01/image0000.png",
+        "Art/Buildings/elixir collector/RES_2_1/idle/image0000.png",
+        "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+        "Art/GUIs/button2/cancel2.png",
+        "Art/GUIs/upgrade_building_gui/BG.png",
+        "Art/GUIs/upgrade_building_gui/button.png",
+        "Art/GUIs/upgrade_building_gui/close.png",
+        "Art/GUIs/upgrade_building_gui/demo.png",
+        "Art/GUIs/upgrade_building_gui/gold_icon.png",
+        "Art/GUIs/upgrade_building_gui/info_bar.png",
+        "Art/GUIs/upgrade_building_gui/info_bar_BG.png",
+        "Art/GUIs/upgrade_building_gui/small/Gold_Capacity_Icon.png",
+        "Art/Map/map_obj_bg/BG_0/3.png",
+        "Default/Button_Disable.png",
+        "Default/Button_Press.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1,0 +1,2035 @@
+{
+  "ID": "710d0974-a18f-4fe2-99ef-c39a18334160",
+  "Version": "3.10.0.0",
+  "Name": "TroopInfo",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 8,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 51,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/UseGemPopup/BG.png",
+              "Plist": ""
+            },
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 129,
+            "Scale9OriginY": 20,
+            "Scale9Width": 133,
+            "Scale9Height": 163,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 320.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 9,
+            "ActionTag": -1843359594,
+            "Size": {
+              "X": 960.0,
+              "Y": 640.0
+            },
+            "Name": "backGround",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": true,
+            "BackColorAlpha": 0,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/TroopInfoUI/arm1.png",
+              "Plist": ""
+            },
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9OriginX": 146,
+            "Scale9OriginY": 151,
+            "Scale9Width": 133,
+            "Scale9Height": 177,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 211.2,
+              "Y": 320.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.22,
+              "Y": 0.5
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 0.4,
+              "Y": 0.7
+            },
+            "LeftMargin": 19.2,
+            "RightMargin": 556.8,
+            "TopMargin": 96.0,
+            "BottomMargin": 96.0,
+            "Tag": 332,
+            "Children": [
+              {
+                "IsCustomSize": true,
+                "FontSize": 40,
+                "LabelText": "Chưa có hình ảnh",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "OutlineEnabled": true,
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 192.0,
+                  "Y": 224.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "Tag": 241,
+                "ActionTag": 146090228,
+                "Size": {
+                  "X": 384.0,
+                  "Y": 448.0
+                },
+                "Name": "noneSpriteText",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 1073097792,
+            "Size": {
+              "X": 384.0,
+              "Y": 448.0
+            },
+            "Name": "leftPanel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "IsCustomSize": true,
+            "FontSize": 40,
+            "LabelText": "TÊN LÍNH + CẤP LÍNH",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+              "Plist": ""
+            },
+            "HorizontalAlignmentType": "HT_Center",
+            "VerticalAlignmentType": "VT_Center",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 473.173,
+              "Y": 592.2135
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.4929,
+              "Y": 0.9253
+            },
+            "PercentWidthEnable": true,
+            "PercentWidthEnabled": true,
+            "PreSize": {
+              "X": 0.5,
+              "Y": 0.075
+            },
+            "LeftMargin": 233.173,
+            "RightMargin": 246.827,
+            "TopMargin": 23.7865,
+            "BottomMargin": 568.2135,
+            "Tag": 199,
+            "ActionTag": 2027159934,
+            "Size": {
+              "X": 480.0,
+              "Y": 48.0
+            },
+            "Name": "troopNameText",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "Art/TroopInfoUI/close.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Art/TroopInfoUI/close.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 17,
+            "Scale9Height": 25,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 864.0,
+              "Y": 588.8
+            },
+            "Scale": {
+              "ScaleX": 1.2,
+              "ScaleY": 1.2
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.9,
+              "Y": 0.92
+            },
+            "PreSize": {
+              "X": 0.049,
+              "Y": 0.0734
+            },
+            "LeftMargin": 840.5,
+            "RightMargin": 72.5,
+            "TopMargin": 27.7,
+            "BottomMargin": 565.3,
+            "Tag": 200,
+            "ActionTag": 742271566,
+            "Size": {
+              "X": 47.0,
+              "Y": 47.0
+            },
+            "Name": "closeButton",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 0,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 672.0,
+              "Y": 288.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.7,
+              "Y": 0.45
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 0.5,
+              "Y": 0.8
+            },
+            "LeftMargin": 432.0,
+            "RightMargin": 48.0,
+            "TopMargin": 96.0,
+            "BottomMargin": 32.0,
+            "Tag": 333,
+            "Children": [
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 240.0,
+                  "Y": 460.8
+                },
+                "Scale": {
+                  "ScaleX": 1.3,
+                  "ScaleY": 1.3
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.9
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.1
+                },
+                "TopMargin": 25.6,
+                "BottomMargin": 435.2,
+                "Tag": 348,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/TroopInfoUI/small/Boost_Damage_Icon.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 13,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 15,
+                    "Scale9Height": 12,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 48.0,
+                      "Y": 25.6
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.1,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.0854,
+                      "Y": 0.6641
+                    },
+                    "LeftMargin": 27.5,
+                    "RightMargin": 411.5,
+                    "TopMargin": 8.6,
+                    "BottomMargin": 8.6,
+                    "Tag": 344,
+                    "ActionTag": 970885300,
+                    "Size": {
+                      "X": 41.0,
+                      "Y": 34.0
+                    },
+                    "Name": "dmgIcon",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/TroopInfoUI/info_bar.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 102,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 107,
+                    "Scale9Height": 14,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 240.0,
+                      "Y": 25.6
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.6479,
+                      "Y": 0.7031
+                    },
+                    "LeftMargin": 84.5,
+                    "RightMargin": 84.5,
+                    "TopMargin": 7.6,
+                    "BottomMargin": 7.6,
+                    "Tag": 345,
+                    "ActionTag": 2130868868,
+                    "Size": {
+                      "X": 311.0,
+                      "Y": 36.0
+                    },
+                    "Name": "dmgBackGround",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "ImageFileData": {
+                      "Type": "Normal",
+                      "Path": "Art/TroopInfoUI/info_bar_BG.png",
+                      "Plist": ""
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 240.0,
+                      "Y": 25.6
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.6479,
+                      "Y": 0.7031
+                    },
+                    "LeftMargin": 84.5,
+                    "RightMargin": 84.5,
+                    "TopMargin": 7.6,
+                    "BottomMargin": 7.6,
+                    "Tag": 346,
+                    "ActionTag": 164969460,
+                    "Size": {
+                      "X": 311.0,
+                      "Y": 36.0
+                    },
+                    "Name": "dmgFill",
+                    "ctype": "LoadingBarObjectData"
+                  },
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 22,
+                    "LabelText": "Sát thương: ",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "R": 0,
+                      "G": 0,
+                      "B": 0
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 219.2308,
+                      "Y": 40.1971
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.4567,
+                      "Y": 0.7851
+                    },
+                    "PreSize": {
+                      "X": 0.4167,
+                      "Y": 0.5664
+                    },
+                    "LeftMargin": 119.2308,
+                    "RightMargin": 160.7692,
+                    "TopMargin": -3.4971,
+                    "BottomMargin": 25.6971,
+                    "Tag": 347,
+                    "ActionTag": -1095690915,
+                    "Size": {
+                      "X": 200.0,
+                      "Y": 29.0
+                    },
+                    "Name": "dmgLabel",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": 698592027,
+                "Size": {
+                  "X": 480.0,
+                  "Y": 51.2
+                },
+                "Name": "dmgPanel",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 240.0,
+                  "Y": 409.6
+                },
+                "Scale": {
+                  "ScaleX": 1.3,
+                  "ScaleY": 1.3
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.8
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.1
+                },
+                "TopMargin": 76.8,
+                "BottomMargin": 384.0,
+                "Tag": 349,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/TroopInfoUI/small/HP_TROOP.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 13,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 5,
+                    "Scale9Height": 9,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 48.0,
+                      "Y": 25.6
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.1,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.0646,
+                      "Y": 0.6055
+                    },
+                    "LeftMargin": 32.5,
+                    "RightMargin": 416.5,
+                    "TopMargin": 10.1,
+                    "BottomMargin": 10.1,
+                    "Tag": 350,
+                    "ActionTag": 1945313654,
+                    "Size": {
+                      "X": 31.0,
+                      "Y": 31.0
+                    },
+                    "Name": "hpIcon",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/TroopInfoUI/info_bar.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 102,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 107,
+                    "Scale9Height": 14,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 240.0,
+                      "Y": 25.6
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.6479,
+                      "Y": 0.7031
+                    },
+                    "LeftMargin": 84.5,
+                    "RightMargin": 84.5,
+                    "TopMargin": 7.6,
+                    "BottomMargin": 7.6,
+                    "Tag": 351,
+                    "ActionTag": -1712356562,
+                    "Size": {
+                      "X": 311.0,
+                      "Y": 36.0
+                    },
+                    "Name": "hpBackGround",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "ImageFileData": {
+                      "Type": "Normal",
+                      "Path": "Art/TroopInfoUI/info_bar_BG.png",
+                      "Plist": ""
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 240.0,
+                      "Y": 25.6
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.6479,
+                      "Y": 0.7031
+                    },
+                    "LeftMargin": 84.5,
+                    "RightMargin": 84.5,
+                    "TopMargin": 7.6,
+                    "BottomMargin": 7.6,
+                    "Tag": 352,
+                    "ActionTag": -807472050,
+                    "Size": {
+                      "X": 311.0,
+                      "Y": 36.0
+                    },
+                    "Name": "hpFill",
+                    "ctype": "LoadingBarObjectData"
+                  },
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 22,
+                    "LabelText": "Máu:",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "R": 0,
+                      "G": 0,
+                      "B": 0
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 219.2308,
+                      "Y": 40.192
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.4567,
+                      "Y": 0.785
+                    },
+                    "PreSize": {
+                      "X": 0.4167,
+                      "Y": 0.5664
+                    },
+                    "LeftMargin": 119.2308,
+                    "RightMargin": 160.7692,
+                    "TopMargin": -3.492,
+                    "BottomMargin": 25.692,
+                    "Tag": 353,
+                    "ActionTag": -17228703,
+                    "Size": {
+                      "X": 200.0,
+                      "Y": 29.0
+                    },
+                    "Name": "hpLabel",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": -477974694,
+                "Size": {
+                  "X": 480.0,
+                  "Y": 51.2
+                },
+                "Name": "hpPanel",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 240.0,
+                  "Y": 358.4
+                },
+                "Scale": {
+                  "ScaleX": 1.3,
+                  "ScaleY": 1.3
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.7
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.1
+                },
+                "TopMargin": 128.0,
+                "BottomMargin": 332.8,
+                "Tag": 354,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/TroopInfoUI/small/Elixir_ProductionRate_Icon.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 13,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 1,
+                    "Scale9Height": 12,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 48.0,
+                      "Y": 25.6
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.1,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.0562,
+                      "Y": 0.6641
+                    },
+                    "LeftMargin": 34.5,
+                    "RightMargin": 418.5,
+                    "TopMargin": 8.6,
+                    "BottomMargin": 8.6,
+                    "Tag": 355,
+                    "ActionTag": 576343666,
+                    "Size": {
+                      "X": 27.0,
+                      "Y": 34.0
+                    },
+                    "Name": "costIcon",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/TroopInfoUI/info_bar.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 102,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 107,
+                    "Scale9Height": 14,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 240.0,
+                      "Y": 25.6
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.6479,
+                      "Y": 0.7031
+                    },
+                    "LeftMargin": 84.5,
+                    "RightMargin": 84.5,
+                    "TopMargin": 7.6,
+                    "BottomMargin": 7.6,
+                    "Tag": 356,
+                    "ActionTag": -94842756,
+                    "Size": {
+                      "X": 311.0,
+                      "Y": 36.0
+                    },
+                    "Name": "costBackground",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "ImageFileData": {
+                      "Type": "Normal",
+                      "Path": "Art/TroopInfoUI/info_bar_BG.png",
+                      "Plist": ""
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 240.0,
+                      "Y": 25.6
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.6479,
+                      "Y": 0.7031
+                    },
+                    "LeftMargin": 84.5,
+                    "RightMargin": 84.5,
+                    "TopMargin": 7.6,
+                    "BottomMargin": 7.6,
+                    "Tag": 357,
+                    "ActionTag": -1348480723,
+                    "Size": {
+                      "X": 311.0,
+                      "Y": 36.0
+                    },
+                    "Name": "costFill",
+                    "ctype": "LoadingBarObjectData"
+                  },
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 22,
+                    "LabelText": "Giá:",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "R": 0,
+                      "G": 0,
+                      "B": 0
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 219.2308,
+                      "Y": 40.192
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.4567,
+                      "Y": 0.785
+                    },
+                    "PreSize": {
+                      "X": 0.4167,
+                      "Y": 0.5664
+                    },
+                    "LeftMargin": 119.2308,
+                    "RightMargin": 160.7692,
+                    "TopMargin": -3.492,
+                    "BottomMargin": 25.692,
+                    "Tag": 358,
+                    "ActionTag": -806733095,
+                    "Size": {
+                      "X": 200.0,
+                      "Y": 29.0
+                    },
+                    "Name": "costLabel",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": 694449372,
+                "Size": {
+                  "X": 480.0,
+                  "Y": 51.2
+                },
+                "Name": "costPanel",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "Mục tiêu ưa thích:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 86.928,
+                  "Y": 289.4848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 226,
+                  "G": 6,
+                  "B": 28
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.1811,
+                  "Y": 0.5654
+                },
+                "PreSize": {
+                  "X": 0.4167,
+                  "Y": 0.0586
+                },
+                "LeftMargin": -13.072,
+                "RightMargin": 293.072,
+                "TopMargin": 207.5152,
+                "BottomMargin": 274.4848,
+                "Tag": 363,
+                "ActionTag": 683628226,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 30.0
+                },
+                "Name": "fTargetText",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "Tài nguyên (tấn công x2)",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 322.128,
+                  "Y": 289.4848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 30,
+                  "G": 144
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.6711,
+                  "Y": 0.5654
+                },
+                "PreSize": {
+                  "X": 0.5208,
+                  "Y": 0.0586
+                },
+                "LeftMargin": 197.128,
+                "RightMargin": 32.872,
+                "TopMargin": 207.5152,
+                "BottomMargin": 274.4848,
+                "Tag": 364,
+                "ActionTag": 703219556,
+                "Size": {
+                  "X": 250.0,
+                  "Y": 30.0
+                },
+                "Name": "fTargetLabel",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "Hình thức tấn công\n",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 86.928,
+                  "Y": 263.8848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 226,
+                  "G": 6,
+                  "B": 28
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.1811,
+                  "Y": 0.5154
+                },
+                "PreSize": {
+                  "X": 0.4167,
+                  "Y": 0.0586
+                },
+                "LeftMargin": -13.072,
+                "RightMargin": 293.072,
+                "TopMargin": 233.1152,
+                "BottomMargin": 248.8848,
+                "Tag": 365,
+                "ActionTag": -1678991617,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 30.0
+                },
+                "Name": "atkTypeText",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "Một mục tiêu\n",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 322.128,
+                  "Y": 263.8848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 30,
+                  "G": 144
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.6711,
+                  "Y": 0.5154
+                },
+                "PreSize": {
+                  "X": 0.5208,
+                  "Y": 0.0586
+                },
+                "LeftMargin": 197.128,
+                "RightMargin": 32.872,
+                "TopMargin": 233.1152,
+                "BottomMargin": 248.8848,
+                "Tag": 366,
+                "ActionTag": 1933969641,
+                "Size": {
+                  "X": 250.0,
+                  "Y": 30.0
+                },
+                "Name": "atkTypeLabel",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "Mục tiêu:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 86.928,
+                  "Y": 238.2848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 226,
+                  "G": 6,
+                  "B": 28
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.1811,
+                  "Y": 0.4654
+                },
+                "PreSize": {
+                  "X": 0.4167,
+                  "Y": 0.0586
+                },
+                "LeftMargin": -13.072,
+                "RightMargin": 293.072,
+                "TopMargin": 258.7152,
+                "BottomMargin": 223.2848,
+                "Tag": 367,
+                "ActionTag": -755816058,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 30.0
+                },
+                "Name": "targetText",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "Dưới đất",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 322.128,
+                  "Y": 238.2848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 30,
+                  "G": 144
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.6711,
+                  "Y": 0.4654
+                },
+                "PreSize": {
+                  "X": 0.5208,
+                  "Y": 0.0586
+                },
+                "LeftMargin": 197.128,
+                "RightMargin": 32.872,
+                "TopMargin": 258.7152,
+                "BottomMargin": 223.2848,
+                "Tag": 368,
+                "ActionTag": 1462307004,
+                "Size": {
+                  "X": 250.0,
+                  "Y": 30.0
+                },
+                "Name": "targetLabel",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "Tốc độ di chuyển:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 86.928,
+                  "Y": 212.6848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 226,
+                  "G": 6,
+                  "B": 28
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.1811,
+                  "Y": 0.4154
+                },
+                "PreSize": {
+                  "X": 0.4167,
+                  "Y": 0.0586
+                },
+                "LeftMargin": -13.072,
+                "RightMargin": 293.072,
+                "TopMargin": 284.3152,
+                "BottomMargin": 197.6848,
+                "Tag": 369,
+                "ActionTag": 599581448,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 30.0
+                },
+                "Name": "mSpeedText",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "32",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 322.128,
+                  "Y": 212.6848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 30,
+                  "G": 144
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.6711,
+                  "Y": 0.4154
+                },
+                "PreSize": {
+                  "X": 0.5208,
+                  "Y": 0.0586
+                },
+                "LeftMargin": 197.128,
+                "RightMargin": 32.872,
+                "TopMargin": 284.3152,
+                "BottomMargin": 197.6848,
+                "Tag": 370,
+                "ActionTag": 169831462,
+                "Size": {
+                  "X": 250.0,
+                  "Y": 30.0
+                },
+                "Name": "mSpeedLabel",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "Thời gian luyện:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 86.928,
+                  "Y": 187.0848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 226,
+                  "G": 6,
+                  "B": 28
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.1811,
+                  "Y": 0.3654
+                },
+                "PreSize": {
+                  "X": 0.4167,
+                  "Y": 0.0586
+                },
+                "LeftMargin": -13.072,
+                "RightMargin": 293.072,
+                "TopMargin": 309.9152,
+                "BottomMargin": 172.0848,
+                "Tag": 371,
+                "ActionTag": 538663295,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 30.0
+                },
+                "Name": "trainTimeText",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "2",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 322.128,
+                  "Y": 187.0848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 30,
+                  "G": 144
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.6711,
+                  "Y": 0.3654
+                },
+                "PreSize": {
+                  "X": 0.5208,
+                  "Y": 0.0586
+                },
+                "LeftMargin": 197.128,
+                "RightMargin": 32.872,
+                "TopMargin": 309.9152,
+                "BottomMargin": 172.0848,
+                "Tag": 372,
+                "ActionTag": -868693734,
+                "Size": {
+                  "X": 250.0,
+                  "Y": 30.0
+                },
+                "Name": "trainTimeLabel",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "Chỗ ở:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 86.928,
+                  "Y": 161.4848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 226,
+                  "G": 6,
+                  "B": 28
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.1811,
+                  "Y": 0.3154
+                },
+                "PreSize": {
+                  "X": 0.4167,
+                  "Y": 0.0586
+                },
+                "LeftMargin": -13.072,
+                "RightMargin": 293.072,
+                "TopMargin": 335.5152,
+                "BottomMargin": 146.4848,
+                "Tag": 373,
+                "ActionTag": 951955690,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 30.0
+                },
+                "Name": "hSpaceText",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 22,
+                "LabelText": "1",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 322.128,
+                  "Y": 161.4848
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 30,
+                  "G": 144
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.6711,
+                  "Y": 0.3154
+                },
+                "PreSize": {
+                  "X": 0.5208,
+                  "Y": 0.0586
+                },
+                "LeftMargin": 197.128,
+                "RightMargin": 32.872,
+                "TopMargin": 335.5152,
+                "BottomMargin": 146.4848,
+                "Tag": 374,
+                "ActionTag": 213080727,
+                "Size": {
+                  "X": 250.0,
+                  "Y": 30.0
+                },
+                "Name": "hSpaceLabel",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 342982413,
+            "Size": {
+              "X": 480.0,
+              "Y": 512.0
+            },
+            "Name": "rightPanel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/TroopInfoUI/bg_guild_army_scroll.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 76.8
+            },
+            "Scale": {
+              "ScaleX": 2.31,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "G": 165,
+              "B": 0
+            },
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.12
+            },
+            "PreSize": {
+              "X": 0.4063,
+              "Y": 0.1422
+            },
+            "LeftMargin": 285.0,
+            "RightMargin": 285.0,
+            "TopMargin": 517.7,
+            "BottomMargin": 31.3,
+            "Tag": 361,
+            "ActionTag": -1182842619,
+            "Size": {
+              "X": 390.0,
+              "Y": 91.0
+            },
+            "Alpha": 80,
+            "Name": "desBackGround",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "IsCustomSize": true,
+            "FontSize": 24,
+            "LabelText": "Nơi nào có Vàng/Dầu, nơi đó có Đạo tặc. Chúng là những kẻ nhanh nhẹn nhất trên mặt đất, là mũi tiên phong trong những cuộc chinh phạt các thành trì giàu có.",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Art/Fonts/Rowdies-Regular_29-07.ttf",
+              "Plist": ""
+            },
+            "HorizontalAlignmentType": "HT_Center",
+            "OutlineColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "OutlineEnabled": true,
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 76.8
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.12
+            },
+            "PreSize": {
+              "X": 0.8854,
+              "Y": 0.1422
+            },
+            "LeftMargin": 55.0,
+            "RightMargin": 55.0,
+            "TopMargin": 517.7,
+            "BottomMargin": 31.3,
+            "Tag": 362,
+            "ActionTag": -587101080,
+            "Size": {
+              "X": 850.0,
+              "Y": 91.0
+            },
+            "Name": "desLabel",
+            "ctype": "TextObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../../Default/Button_Disable.png",
+        "../Fonts/Rowdies-Regular_29-07.ttf",
+        "../Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+        "../UseGemPopup/BG.png",
+        "arm1.png",
+        "bg_guild_army_scroll.png",
+        "close.png",
+        "info_bar.png",
+        "info_bar_BG.png",
+        "small/Boost_Damage_Icon.png",
+        "small/Elixir_ProductionRate_Icon.png",
+        "small/HP_TROOP.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

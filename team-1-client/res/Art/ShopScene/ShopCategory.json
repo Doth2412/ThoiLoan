@@ -1,0 +1,1336 @@
+{
+  "ID": "f7b537e1-d59f-4b94-bef6-1feb64a1edae",
+  "Version": "3.10.0.0",
+  "Name": "ShopCategory",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 8,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 51,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/UseGemPopup/BG.png",
+              "Plist": ""
+            },
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 129,
+            "Scale9OriginY": 20,
+            "Scale9Width": 133,
+            "Scale9Height": 163,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 320.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 9,
+            "Children": [
+              {
+                "InnerNodeSize": {
+                  "Width": 912,
+                  "Height": 320
+                },
+                "ScrollDirectionType": "Horizontal",
+                "ClipAble": true,
+                "BackColorAlpha": 102,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 92,
+                  "G": 89,
+                  "B": 87
+                },
+                "FirstColor": {
+                  "G": 150,
+                  "B": 100
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 480.0,
+                  "Y": 322.624
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5041
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 0.95,
+                  "Y": 0.5
+                },
+                "LeftMargin": 24.0,
+                "RightMargin": 24.0,
+                "TopMargin": 157.376,
+                "BottomMargin": 162.624,
+                "Tag": 114,
+                "Children": [
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Disable.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Press.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "Art/GUIs/shop_gui/slot.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 196,
+                    "Scale9Height": 303,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 135.6144,
+                      "Y": 160.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.1487,
+                      "Y": 0.5
+                    },
+                    "PercentWidthEnable": true,
+                    "PercentHeightEnable": true,
+                    "PercentWidthEnabled": true,
+                    "PercentHeightEnabled": true,
+                    "PreSize": {
+                      "X": 0.25,
+                      "Y": 1.0
+                    },
+                    "LeftMargin": 21.6144,
+                    "RightMargin": 662.3856,
+                    "Tag": 149,
+                    "Children": [
+                      {
+                        "FontSize": 20,
+                        "LabelText": "Kho dầu",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                          "Plist": ""
+                        },
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 114.0,
+                          "Y": 288.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.9
+                        },
+                        "PreSize": {
+                          "X": 0.3026,
+                          "Y": 0.075
+                        },
+                        "LeftMargin": 79.5,
+                        "RightMargin": 79.5,
+                        "TopMargin": 20.0,
+                        "BottomMargin": 276.0,
+                        "Tag": 150,
+                        "ActionTag": 1365730225,
+                        "Size": {
+                          "X": 69.0,
+                          "Y": 24.0
+                        },
+                        "Name": "itemName",
+                        "ctype": "TextObjectData"
+                      },
+                      {
+                        "FontSize": 20,
+                        "LabelText": "15m0s",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                          "Plist": ""
+                        },
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5501,
+                          "ScaleY": 0.4861
+                        },
+                        "Position": {
+                          "X": 75.24,
+                          "Y": 96.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.33,
+                          "Y": 0.3
+                        },
+                        "PreSize": {
+                          "X": 0.25,
+                          "Y": 0.075
+                        },
+                        "LeftMargin": 43.8843,
+                        "RightMargin": 127.1157,
+                        "TopMargin": 211.6664,
+                        "BottomMargin": 84.3336,
+                        "Tag": 151,
+                        "ActionTag": -608199391,
+                        "Size": {
+                          "X": 57.0,
+                          "Y": 24.0
+                        },
+                        "Name": "itemTime",
+                        "ctype": "TextObjectData"
+                      },
+                      {
+                        "FontSize": 20,
+                        "LabelText": "3/4",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                          "Plist": ""
+                        },
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 171.0,
+                          "Y": 96.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": 0.9705,
+                        "RotationSkewY": 0.9705,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.75,
+                          "Y": 0.3
+                        },
+                        "PreSize": {
+                          "X": 0.1272,
+                          "Y": 0.075
+                        },
+                        "LeftMargin": 156.5,
+                        "RightMargin": 42.5,
+                        "TopMargin": 212.0,
+                        "BottomMargin": 84.0,
+                        "Tag": 152,
+                        "ActionTag": -608531277,
+                        "Size": {
+                          "X": 29.0,
+                          "Y": 24.0
+                        },
+                        "Name": "itemLimit",
+                        "ctype": "TextObjectData"
+                      },
+                      {
+                        "FontSize": 20,
+                        "LabelText": "300",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Art/Fonts/UTM_Swiss_CondensedBold.ttf",
+                          "Plist": ""
+                        },
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 121.98,
+                          "Y": 37.12
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.535,
+                          "Y": 0.116
+                        },
+                        "PreSize": {
+                          "X": 0.1447,
+                          "Y": 0.075
+                        },
+                        "LeftMargin": 105.48,
+                        "RightMargin": 89.52,
+                        "TopMargin": 270.88,
+                        "BottomMargin": 25.12,
+                        "Tag": 153,
+                        "ActionTag": 513547540,
+                        "Size": {
+                          "X": 33.0,
+                          "Y": 24.0
+                        },
+                        "Name": "itemCost",
+                        "ctype": "TextObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Art/GUIs/shop_gui/gold.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 9,
+                        "Scale9OriginY": 9,
+                        "Scale9Width": 10,
+                        "Scale9Height": 12,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 193.8,
+                          "Y": 37.12
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.85,
+                          "Y": 0.116
+                        },
+                        "PreSize": {
+                          "X": 0.1579,
+                          "Y": 0.1187
+                        },
+                        "LeftMargin": 175.8,
+                        "RightMargin": 16.2,
+                        "TopMargin": 263.88,
+                        "BottomMargin": 18.12,
+                        "Tag": 178,
+                        "ActionTag": -826657737,
+                        "Size": {
+                          "X": 36.0,
+                          "Y": 38.0
+                        },
+                        "Name": "itemCostTypeImage",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Art/GUIs/shop_gui/time.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 9,
+                        "Scale9OriginY": 13,
+                        "Scale9Width": 10,
+                        "Scale9Height": 16,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 27.36,
+                          "Y": 96.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.12,
+                          "Y": 0.3
+                        },
+                        "PreSize": {
+                          "X": 0.1228,
+                          "Y": 0.1312
+                        },
+                        "LeftMargin": 13.36,
+                        "RightMargin": 186.64,
+                        "TopMargin": 203.0,
+                        "BottomMargin": 75.0,
+                        "Tag": 179,
+                        "ActionTag": 110700329,
+                        "Size": {
+                          "X": 28.0,
+                          "Y": 42.0
+                        },
+                        "Name": "itemTimeIcon",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Art/GUIs/shop_gui/catalogy_bg2.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 79,
+                        "Scale9OriginY": 61,
+                        "Scale9Width": 83,
+                        "Scale9Height": 64,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 114.0,
+                          "Y": 160.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 1.057,
+                          "Y": 0.5813
+                        },
+                        "LeftMargin": -6.5,
+                        "RightMargin": -6.5,
+                        "TopMargin": 67.0,
+                        "BottomMargin": 67.0,
+                        "Tag": 180,
+                        "ActionTag": 1747895326,
+                        "Size": {
+                          "X": 241.0,
+                          "Y": 186.0
+                        },
+                        "Name": "backGroundImage",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Art/GUIs/icons/shop_gui/icon/STO_2.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 77,
+                        "Scale9OriginY": 107,
+                        "Scale9Width": 81,
+                        "Scale9Height": 111,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 114.0,
+                          "Y": 160.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 1.0307,
+                          "Y": 1.0156
+                        },
+                        "LeftMargin": -3.5,
+                        "RightMargin": -3.5,
+                        "TopMargin": -2.5,
+                        "BottomMargin": -2.5,
+                        "Tag": 181,
+                        "ActionTag": -1100735094,
+                        "Size": {
+                          "X": 235.0,
+                          "Y": 325.0
+                        },
+                        "Name": "itemImage",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": 298718349,
+                    "Size": {
+                      "X": 228.0,
+                      "Y": 320.0
+                    },
+                    "Name": "shopSingularItem",
+                    "ctype": "ButtonObjectData"
+                  }
+                ],
+                "ActionTag": 885909351,
+                "Size": {
+                  "X": 912.0,
+                  "Y": 320.0
+                },
+                "Name": "ShopItem",
+                "ctype": "ScrollViewObjectData"
+              }
+            ],
+            "ActionTag": -1843359594,
+            "Size": {
+              "X": 960.0,
+              "Y": 640.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/GUIs/shop_gui/res_bar.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 240.0,
+              "Y": 64.0
+            },
+            "Scale": {
+              "ScaleX": 1.1,
+              "ScaleY": 1.1
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.25,
+              "Y": 0.1
+            },
+            "PreSize": {
+              "X": 0.1458,
+              "Y": 0.0562
+            },
+            "LeftMargin": 170.0,
+            "RightMargin": 650.0,
+            "TopMargin": 558.0,
+            "BottomMargin": 46.0,
+            "Tag": 211,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Art/GUIs/shop_gui/icon_gold_bar.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 126.0,
+                  "Y": 18.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.9,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.2571,
+                  "Y": 1.0556
+                },
+                "LeftMargin": 108.0,
+                "RightMargin": -4.0,
+                "TopMargin": -1.0,
+                "BottomMargin": -1.0,
+                "Tag": 212,
+                "ActionTag": -798827550,
+                "Size": {
+                  "X": 36.0,
+                  "Y": 38.0
+                },
+                "Name": "goldIcon",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "123456",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 70.0,
+                  "Y": 18.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.45,
+                  "Y": 0.6667
+                },
+                "LeftMargin": 38.5,
+                "RightMargin": 38.5,
+                "TopMargin": 6.0,
+                "BottomMargin": 6.0,
+                "Tag": 213,
+                "ActionTag": -1587048623,
+                "Size": {
+                  "X": 63.0,
+                  "Y": 24.0
+                },
+                "Name": "goldAmountText",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 1233038309,
+            "Size": {
+              "X": 140.0,
+              "Y": 36.0
+            },
+            "Name": "goldAmount",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/GUIs/shop_gui/res_bar.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 64.0
+            },
+            "Scale": {
+              "ScaleX": 1.1,
+              "ScaleY": 1.1
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.1
+            },
+            "PreSize": {
+              "X": 0.1458,
+              "Y": 0.0562
+            },
+            "LeftMargin": 410.0,
+            "RightMargin": 410.0,
+            "TopMargin": 558.0,
+            "BottomMargin": 46.0,
+            "Tag": 214,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Art/GUIs/shop_gui/icon_elixir_bar.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 126.0,
+                  "Y": 18.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.9,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.2143,
+                  "Y": 1.1111
+                },
+                "LeftMargin": 111.0,
+                "RightMargin": -1.0,
+                "TopMargin": -2.0,
+                "BottomMargin": -2.0,
+                "Tag": 215,
+                "ActionTag": 668823543,
+                "Size": {
+                  "X": 30.0,
+                  "Y": 40.0
+                },
+                "Name": "oilIcon",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "123456",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 70.0,
+                  "Y": 18.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.45,
+                  "Y": 0.6667
+                },
+                "LeftMargin": 38.5,
+                "RightMargin": 38.5,
+                "TopMargin": 6.0,
+                "BottomMargin": 6.0,
+                "Tag": 216,
+                "ActionTag": -374386713,
+                "Size": {
+                  "X": 63.0,
+                  "Y": 24.0
+                },
+                "Name": "oilIconText",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -250188880,
+            "Size": {
+              "X": 140.0,
+              "Y": 36.0
+            },
+            "Name": "oilAmount",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/GUIs/shop_gui/res_bar.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 720.0,
+              "Y": 64.0
+            },
+            "Scale": {
+              "ScaleX": 1.1,
+              "ScaleY": 1.1
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.75,
+              "Y": 0.1
+            },
+            "PreSize": {
+              "X": 0.1458,
+              "Y": 0.0562
+            },
+            "LeftMargin": 650.0,
+            "RightMargin": 170.0,
+            "TopMargin": 558.0,
+            "BottomMargin": 46.0,
+            "Tag": 217,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Art/GUIs/shop_gui/icon_g_bar.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 126.0,
+                  "Y": 18.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.9,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.2286,
+                  "Y": 0.9444
+                },
+                "LeftMargin": 110.0,
+                "RightMargin": -2.0,
+                "TopMargin": 1.0,
+                "BottomMargin": 1.0,
+                "Tag": 218,
+                "ActionTag": 1511939426,
+                "Size": {
+                  "X": 32.0,
+                  "Y": 34.0
+                },
+                "Name": "gIcon",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "123456",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 70.0,
+                  "Y": 18.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.45,
+                  "Y": 0.6667
+                },
+                "LeftMargin": 38.5,
+                "RightMargin": 38.5,
+                "TopMargin": 6.0,
+                "BottomMargin": 6.0,
+                "Tag": 219,
+                "ActionTag": 392281818,
+                "Size": {
+                  "X": 63.0,
+                  "Y": 24.0
+                },
+                "Name": "gAmountText",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 121659755,
+            "Size": {
+              "X": 140.0,
+              "Y": 36.0
+            },
+            "Name": "gAmount",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 28,
+            "LabelText": "CỬA HÀNG",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 588.8
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.92
+            },
+            "PreSize": {
+              "X": 0.1271,
+              "Y": 0.0531
+            },
+            "LeftMargin": 419.0,
+            "RightMargin": 419.0,
+            "TopMargin": 34.2,
+            "BottomMargin": 571.8,
+            "Tag": 199,
+            "ActionTag": 2027159934,
+            "Size": {
+              "X": 122.0,
+              "Y": 34.0
+            },
+            "Name": "shopTitle",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Art/GUIs/shop_gui/close.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 17,
+            "Scale9Height": 25,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 864.0,
+              "Y": 588.8
+            },
+            "Scale": {
+              "ScaleX": 1.2,
+              "ScaleY": 1.2
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.9,
+              "Y": 0.92
+            },
+            "PreSize": {
+              "X": 0.049,
+              "Y": 0.0734
+            },
+            "LeftMargin": 840.5,
+            "RightMargin": 72.5,
+            "TopMargin": 27.7,
+            "BottomMargin": 565.3,
+            "Tag": 200,
+            "ActionTag": 742271566,
+            "Size": {
+              "X": 47.0,
+              "Y": 47.0
+            },
+            "Name": "closeButton",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Art/GUIs/shop_gui/back.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 44,
+            "Scale9Height": 25,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 96.0,
+              "Y": 588.8
+            },
+            "Scale": {
+              "ScaleX": 1.2,
+              "ScaleY": 1.2
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.1,
+              "Y": 0.92
+            },
+            "PreSize": {
+              "X": 0.0771,
+              "Y": 0.0734
+            },
+            "LeftMargin": 59.0,
+            "RightMargin": 827.0,
+            "TopMargin": 27.7,
+            "BottomMargin": 565.3,
+            "Tag": 201,
+            "ActionTag": 799728014,
+            "Size": {
+              "X": 74.0,
+              "Y": 47.0
+            },
+            "Name": "backButton",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+        "Art/Fonts/UTM_Swiss_CondensedBold.ttf",
+        "Art/GUIs/icons/shop_gui/icon/STO_2.png",
+        "Art/GUIs/shop_gui/back.png",
+        "Art/GUIs/shop_gui/catalogy_bg2.png",
+        "Art/GUIs/shop_gui/close.png",
+        "Art/GUIs/shop_gui/gold.png",
+        "Art/GUIs/shop_gui/icon_elixir_bar.png",
+        "Art/GUIs/shop_gui/icon_g_bar.png",
+        "Art/GUIs/shop_gui/icon_gold_bar.png",
+        "Art/GUIs/shop_gui/res_bar.png",
+        "Art/GUIs/shop_gui/slot.png",
+        "Art/GUIs/shop_gui/time.png",
+        "Art/UseGemPopup/BG.png",
+        "Default/Button_Disable.png",
+        "Default/Button_Press.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

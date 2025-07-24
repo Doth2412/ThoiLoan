@@ -1,0 +1,928 @@
+{
+  "TOW_1": {
+    "1": {
+      "RES_1": {
+        "num": 1,
+        "level": 1
+      },
+      "RES_2": {
+        "num": 1,
+        "level": 1
+      },
+      "STO_1": {
+        "num": 1,
+        "level": 1
+      },
+      "STO_2": {
+        "num": 1,
+        "level": 1
+      },
+      "AMC_1": {
+        "num": 1,
+        "level": 1
+      },
+      "BAR_1": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_1": {
+        "num": 1,
+        "level": 1
+      }
+    },
+    "2": {
+      "RES_1": {
+        "num": 1,
+        "level": 2
+      },
+      "RES_2": {
+        "num": 1,
+        "level": 2
+      },
+      "STO_1": {
+        "num": 1,
+        "level": 2
+      },
+      "STO_2": {
+        "num": 1,
+        "level": 2
+      },
+      "AMC_1": {
+        "num": 1,
+        "level": 1
+      },
+      "BAR_1": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_1": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_2": {
+        "num": 1,
+        "level": 1
+      }
+    },
+    "3": {
+      "RES_1": {
+        "num": 2,
+        "level": 3
+      },
+      "RES_2": {
+        "num": 2,
+        "level": 3
+      },
+      "STO_1": {
+        "num": 1,
+        "level": 3
+      },
+      "STO_2": {
+        "num": 1,
+        "level": 3
+      },
+      "AMC_1": {
+        "num": 1,
+        "level": 2
+      },
+      "BAR_1": {
+        "num": 1,
+        "level": 3
+      },
+      "LAB_1": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_1": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_2": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_3": {
+        "num": 1,
+        "level": 1
+      },
+      "TRA_1": {
+        "num": 1,
+        "level": 1
+      }
+    },
+    "4": {
+      "RES_1": {
+        "num": 2,
+        "level": 4
+      },
+      "RES_2": {
+        "num": 2,
+        "level": 4
+      },
+      "STO_1": {
+        "num": 1,
+        "level": 4
+      },
+      "STO_2": {
+        "num": 1,
+        "level": 4
+      },
+      "AMC_1": {
+        "num": 1,
+        "level": 2
+      },
+      "BAR_1": {
+        "num": 2,
+        "level": 3
+      },
+      "LAB_1": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_1": {
+        "num": 1,
+        "level": 3
+      },
+      "DEF_2": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_3": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_5": {
+        "num": 1,
+        "level": 1
+      },
+      "TRA_1": {
+        "num": 1,
+        "level": 1
+      },
+      "TRA_2": {
+        "num": 1,
+        "level": 1
+      }
+    },
+    "5": {
+      "RES_1": {
+        "num": 3,
+        "level": 5
+      },
+      "RES_2": {
+        "num": 3,
+        "level": 5
+      },
+      "STO_1": {
+        "num": 1,
+        "level": 5
+      },
+      "STO_2": {
+        "num": 1,
+        "level": 5
+      },
+      "AMC_1": {
+        "num": 2,
+        "level": 3
+      },
+      "BAR_1": {
+        "num": 2,
+        "level": 4
+      },
+      "LAB_1": {
+        "num": 1,
+        "level": 2
+      },
+      "SPF_1": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_1": {
+        "num": 2,
+        "level": 3
+      },
+      "DEF_2": {
+        "num": 2,
+        "level": 3
+      },
+      "DEF_3": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_5": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_4": {
+        "num": 1,
+        "level": 2
+      },
+      "TRA_1": {
+        "num": 2,
+        "level": 2
+      },
+      "TRA_2": {
+        "num": 1,
+        "level": 1
+      },
+      "TRA_4": {
+        "num": 1,
+        "level": 1
+      }
+    },
+    "6": {
+      "RES_1": {
+        "num": 3,
+        "level": 5
+      },
+      "RES_2": {
+        "num": 3,
+        "level": 5
+      },
+      "STO_1": {
+        "num": 1,
+        "level": 5
+      },
+      "STO_2": {
+        "num": 1,
+        "level": 5
+      },
+      "AMC_1": {
+        "num": 2,
+        "level": 3
+      },
+      "BAR_1": {
+        "num": 2,
+        "level": 4
+      },
+      "LAB_1": {
+        "num": 1,
+        "level": 2
+      },
+      "SPF_1": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_1": {
+        "num": 2,
+        "level": 4
+      },
+      "DEF_2": {
+        "num": 2,
+        "level": 4
+      },
+      "DEF_3": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_5": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_4": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_11": {
+        "num": 1,
+        "level": 1
+      },
+      "TRA_1": {
+        "num": 2,
+        "level": 2
+      },
+      "TRA_2": {
+        "num": 2,
+        "level": 1
+      },
+      "TRA_4": {
+        "num": 1,
+        "level": 1
+      },
+      "TRA_3": {
+        "num": 1,
+        "level": 1
+      }
+    },
+    "7": {
+      "RES_1": {
+        "num": 3,
+        "level": 6
+      },
+      "RES_2": {
+        "num": 3,
+        "level": 6
+      },
+      "STO_1": {
+        "num": 1,
+        "level": 6
+      },
+      "STO_2": {
+        "num": 1,
+        "level": 6
+      },
+      "AMC_1": {
+        "num": 3,
+        "level": 3
+      },
+      "BAR_1": {
+        "num": 2,
+        "level": 5
+      },
+      "BAR_2": {
+        "num": 1,
+        "level": 1
+      },
+      "LAB_1": {
+        "num": 1,
+        "level": 3
+      },
+      "SPF_1": {
+        "num": 1,
+        "level": 2
+      },
+      "KQB_1": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_1": {
+        "num": 3,
+        "level": 4
+      },
+      "DEF_2": {
+        "num": 2,
+        "level": 4
+      },
+      "DEF_3": {
+        "num": 2,
+        "level": 3
+      },
+      "DEF_5": {
+        "num": 2,
+        "level": 3
+      },
+      "DEF_4": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_11": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_8": {
+        "num": 1,
+        "level": 2
+      },
+      "TRA_1": {
+        "num": 3,
+        "level": 2
+      },
+      "TRA_2": {
+        "num": 2,
+        "level": 1
+      },
+      "TRA_4": {
+        "num": 1,
+        "level": 2
+      },
+      "TRA_3": {
+        "num": 1,
+        "level": 1
+      },
+      "TRA_5": {
+        "num": 1,
+        "level": 1
+      }
+    },
+    "8": {
+      "RES_1": {
+        "num": 3,
+        "level": 6
+      },
+      "RES_2": {
+        "num": 3,
+        "level": 6
+      },
+      "STO_1": {
+        "num": 2,
+        "level": 6
+      },
+      "STO_2": {
+        "num": 2,
+        "level": 6
+      },
+      "AMC_1": {
+        "num": 3,
+        "level": 3
+      },
+      "BAR_1": {
+        "num": 2,
+        "level": 5
+      },
+      "BAR_2": {
+        "num": 1,
+        "level": 2
+      },
+      "LAB_1": {
+        "num": 1,
+        "level": 3
+      },
+      "SPF_1": {
+        "num": 1,
+        "level": 2
+      },
+      "KQB_1": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_1": {
+        "num": 3,
+        "level": 5
+      },
+      "DEF_2": {
+        "num": 3,
+        "level": 5
+      },
+      "DEF_3": {
+        "num": 2,
+        "level": 3
+      },
+      "DEF_5": {
+        "num": 2,
+        "level": 3
+      },
+      "DEF_4": {
+        "num": 2,
+        "level": 3
+      },
+      "DEF_11": {
+        "num": 1,
+        "level": 2
+      },
+      "DEF_8": {
+        "num": 2,
+        "level": 3
+      },
+      "TRA_1": {
+        "num": 3,
+        "level": 3
+      },
+      "TRA_2": {
+        "num": 3,
+        "level": 2
+      },
+      "TRA_4": {
+        "num": 2,
+        "level": 2
+      },
+      "TRA_3": {
+        "num": 2,
+        "level": 2
+      },
+      "TRA_5": {
+        "num": 1,
+        "level": 1
+      },
+      "TRA_6": {
+        "num": 1,
+        "level": 1
+      }
+    },
+    "9": {
+      "RES_1": {
+        "num": 4,
+        "level": 6
+      },
+      "RES_2": {
+        "num": 4,
+        "level": 6
+      },
+      "STO_1": {
+        "num": 2,
+        "level": 6
+      },
+      "STO_2": {
+        "num": 2,
+        "level": 6
+      },
+      "AMC_1": {
+        "num": 3,
+        "level": 4
+      },
+      "BAR_1": {
+        "num": 2,
+        "level": 6
+      },
+      "BAR_2": {
+        "num": 1,
+        "level": 3
+      },
+      "LAB_1": {
+        "num": 1,
+        "level": 4
+      },
+      "SPF_1": {
+        "num": 1,
+        "level": 2
+      },
+      "KQB_1": {
+        "num": 1,
+        "level": 1
+      },
+      "KQB_2": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_1": {
+        "num": 3,
+        "level": 6
+      },
+      "DEF_2": {
+        "num": 3,
+        "level": 6
+      },
+      "DEF_3": {
+        "num": 2,
+        "level": 4
+      },
+      "DEF_5": {
+        "num": 2,
+        "level": 4
+      },
+      "DEF_4": {
+        "num": 2,
+        "level": 4
+      },
+      "DEF_11": {
+        "num": 1,
+        "level": 3
+      },
+      "DEF_8": {
+        "num": 2,
+        "level": 4
+      },
+      "DEF_7": {
+        "num": 1,
+        "level": 2
+      },
+      "TRA_1": {
+        "num": 3,
+        "level": 3
+      },
+      "TRA_2": {
+        "num": 3,
+        "level": 2
+      },
+      "TRA_4": {
+        "num": 2,
+        "level": 2
+      },
+      "TRA_3": {
+        "num": 2,
+        "level": 2
+      },
+      "TRA_5": {
+        "num": 2,
+        "level": 1
+      },
+      "TRA_6": {
+        "num": 1,
+        "level": 2
+      }
+    },
+    "10": {
+      "RES_1": {
+        "num": 4,
+        "level": 7
+      },
+      "RES_2": {
+        "num": 4,
+        "level": 7
+      },
+      "STO_1": {
+        "num": 2,
+        "level": 6
+      },
+      "STO_2": {
+        "num": 2,
+        "level": 6
+      },
+      "AMC_1": {
+        "num": 3,
+        "level": 4
+      },
+      "BAR_1": {
+        "num": 2,
+        "level": 6
+      },
+      "BAR_2": {
+        "num": 1,
+        "level": 4
+      },
+      "LAB_1": {
+        "num": 1,
+        "level": 4
+      },
+      "SPF_1": {
+        "num": 1,
+        "level": 3
+      },
+      "KQB_1": {
+        "num": 1,
+        "level": 1
+      },
+      "KQB_2": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_1": {
+        "num": 4,
+        "level": 7
+      },
+      "DEF_2": {
+        "num": 4,
+        "level": 7
+      },
+      "DEF_3": {
+        "num": 2,
+        "level": 4
+      },
+      "DEF_5": {
+        "num": 2,
+        "level": 4
+      },
+      "DEF_4": {
+        "num": 2,
+        "level": 5
+      },
+      "DEF_11": {
+        "num": 1,
+        "level": 3
+      },
+      "DEF_8": {
+        "num": 2,
+        "level": 4
+      },
+      "DEF_7": {
+        "num": 2,
+        "level": 2
+      },
+      "DEF_9": {
+        "num": 1,
+        "level": 2
+      },
+      "TRA_1": {
+        "num": 3,
+        "level": 4
+      },
+      "TRA_2": {
+        "num": 3,
+        "level": 3
+      },
+      "TRA_4": {
+        "num": 3,
+        "level": 2
+      },
+      "TRA_3": {
+        "num": 3,
+        "level": 2
+      },
+      "TRA_5": {
+        "num": 3,
+        "level": 1
+      },
+      "TRA_6": {
+        "num": 2,
+        "level": 2
+      }
+    },
+    "11": {
+      "RES_1": {
+        "num": 4,
+        "level": 7
+      },
+      "RES_2": {
+        "num": 4,
+        "level": 7
+      },
+      "STO_1": {
+        "num": 2,
+        "level": 6
+      },
+      "STO_2": {
+        "num": 2,
+        "level": 6
+      },
+      "AMC_1": {
+        "num": 3,
+        "level": 5
+      },
+      "BAR_1": {
+        "num": 2,
+        "level": 7
+      },
+      "BAR_2": {
+        "num": 1,
+        "level": 4
+      },
+      "LAB_1": {
+        "num": 1,
+        "level": 5
+      },
+      "SPF_1": {
+        "num": 1,
+        "level": 3
+      },
+      "KQB_1": {
+        "num": 1,
+        "level": 1
+      },
+      "KQB_2": {
+        "num": 1,
+        "level": 1
+      },
+      "KQB_4": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_1": {
+        "num": 4,
+        "level": 8
+      },
+      "DEF_2": {
+        "num": 4,
+        "level": 8
+      },
+      "DEF_3": {
+        "num": 2,
+        "level": 5
+      },
+      "DEF_5": {
+        "num": 2,
+        "level": 5
+      },
+      "DEF_4": {
+        "num": 3,
+        "level": 5
+      },
+      "DEF_11": {
+        "num": 1,
+        "level": 4
+      },
+      "DEF_8": {
+        "num": 2,
+        "level": 5
+      },
+      "DEF_7": {
+        "num": 2,
+        "level": 3
+      },
+      "DEF_9": {
+        "num": 1,
+        "level": 3
+      },
+      "DEF_12": {
+        "num": 1,
+        "level": 1
+      },
+      "TRA_1": {
+        "num": 3,
+        "level": 4
+      },
+      "TRA_2": {
+        "num": 3,
+        "level": 3
+      },
+      "TRA_4": {
+        "num": 3,
+        "level": 3
+      },
+      "TRA_3": {
+        "num": 3,
+        "level": 3
+      },
+      "TRA_5": {
+        "num": 3,
+        "level": 2
+      },
+      "TRA_6": {
+        "num": 2,
+        "level": 2
+      }
+    },
+    "12": {
+      "RES_1": {
+        "num": 4,
+        "level": 7
+      },
+      "RES_2": {
+        "num": 4,
+        "level": 7
+      },
+      "STO_1": {
+        "num": 2,
+        "level": 7
+      },
+      "STO_2": {
+        "num": 2,
+        "level": 7
+      },
+      "AMC_1": {
+        "num": 3,
+        "level": 5
+      },
+      "BAR_1": {
+        "num": 2,
+        "level": 7
+      },
+      "BAR_2": {
+        "num": 1,
+        "level": 4
+      },
+      "LAB_1": {
+        "num": 1,
+        "level": 5
+      },
+      "SPF_1": {
+        "num": 1,
+        "level": 3
+      },
+      "KQB_1": {
+        "num": 1,
+        "level": 1
+      },
+      "KQB_2": {
+        "num": 1,
+        "level": 1
+      },
+      "KQB_4": {
+        "num": 1,
+        "level": 1
+      },
+      "DEF_1": {
+        "num": 4,
+        "level": 9
+      },
+      "DEF_2": {
+        "num": 4,
+        "level": 9
+      },
+      "DEF_3": {
+        "num": 2,
+        "level": 6
+      },
+      "DEF_5": {
+        "num": 2,
+        "level": 5
+      },
+      "DEF_4": {
+        "num": 3,
+        "level": 6
+      },
+      "DEF_11": {
+        "num": 1,
+        "level": 4
+      },
+      "DEF_8": {
+        "num": 3,
+        "level": 5
+      },
+      "DEF_7": {
+        "num": 2,
+        "level": 3
+      },
+      "DEF_9": {
+        "num": 2,
+        "level": 3
+      },
+      "DEF_12": {
+        "num": 1,
+        "level": 2
+      },
+      "TRA_1": {
+        "num": 3,
+        "level": 4
+      },
+      "TRA_2": {
+        "num": 4,
+        "level": 3
+      },
+      "TRA_4": {
+        "num": 3,
+        "level": 3
+      },
+      "TRA_3": {
+        "num": 3,
+        "level": 3
+      },
+      "TRA_5": {
+        "num": 3,
+        "level": 2
+      },
+      "TRA_6": {
+        "num": 2,
+        "level": 2
+      }
+    }
+  }
+}

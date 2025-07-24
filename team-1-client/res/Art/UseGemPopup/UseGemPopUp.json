@@ -1,0 +1,629 @@
+{
+  "ID": "0bf134c8-bf4d-4d6d-9330-b0d38d7ec0d0",
+  "Version": "3.10.0.0",
+  "Name": "UseGemPopUp",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Art/GUIs/upgrade_building_gui/BG.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 320.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.4073,
+              "Y": 0.4266
+            },
+            "LeftMargin": 284.5,
+            "RightMargin": 284.5,
+            "TopMargin": 183.5,
+            "BottomMargin": 183.5,
+            "Tag": 2,
+            "Children": [
+              {
+                "FontSize": 20,
+                "LabelText": "THIEU TAI NGUYEN",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "R": 71,
+                  "G": 71,
+                  "B": 71
+                },
+                "OutlineEnabled": true,
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 195.5,
+                  "Y": 252.525
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.925
+                },
+                "PreSize": {
+                  "X": 0.4066,
+                  "Y": 0.0952
+                },
+                "LeftMargin": 116.0,
+                "RightMargin": 116.0,
+                "TopMargin": 7.475,
+                "BottomMargin": 239.525,
+                "Tag": 3,
+                "ActionTag": -1304440624,
+                "Size": {
+                  "X": 159.0,
+                  "Y": 26.0
+                },
+                "Name": "useGemLabel",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 18,
+                "LabelText": "Ban co muon mua so tai nguyen con thieu?",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "R": 71,
+                  "G": 71,
+                  "B": 71
+                },
+                "OutlineEnabled": true,
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 195.5,
+                  "Y": 177.45
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.65
+                },
+                "PreSize": {
+                  "X": 0.8184,
+                  "Y": 0.0879
+                },
+                "LeftMargin": 35.5,
+                "RightMargin": 35.5,
+                "TopMargin": 83.55,
+                "BottomMargin": 165.45,
+                "Tag": 4,
+                "ActionTag": 929112550,
+                "Size": {
+                  "X": 320.0,
+                  "Y": 24.0
+                },
+                "Name": "useGemPrompt",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "54321",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "R": 71,
+                  "G": 71,
+                  "B": 71
+                },
+                "OutlineEnabled": true,
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 175.95,
+                  "Y": 136.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.45,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.1304,
+                  "Y": 0.0952
+                },
+                "LeftMargin": 150.45,
+                "RightMargin": 189.55,
+                "TopMargin": 123.5,
+                "BottomMargin": 123.5,
+                "Tag": 5,
+                "ActionTag": -1932665963,
+                "Size": {
+                  "X": 51.0,
+                  "Y": 26.0
+                },
+                "Name": "userGemConvert",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Art/GUIs/shop_gui/gold.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 9,
+                "Scale9OriginY": 9,
+                "Scale9Width": 10,
+                "Scale9Height": 12,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 258.06,
+                  "Y": 136.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.66,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.0716,
+                  "Y": 0.1099
+                },
+                "LeftMargin": 244.06,
+                "RightMargin": 118.94,
+                "TopMargin": 121.5,
+                "BottomMargin": 121.5,
+                "Tag": 12,
+                "ActionTag": -2132336865,
+                "Size": {
+                  "X": 28.0,
+                  "Y": 30.0
+                },
+                "Name": "convertResourceIcon",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Press.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Art/GUIs/pop_up/button2.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 111,
+                "Scale9Height": 38,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 117.3,
+                  "Y": 54.6
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.3,
+                  "Y": 0.2
+                },
+                "PreSize": {
+                  "X": 0.3606,
+                  "Y": 0.2198
+                },
+                "LeftMargin": 46.8,
+                "RightMargin": 203.2,
+                "TopMargin": 188.4,
+                "BottomMargin": 24.6,
+                "Tag": 13,
+                "Children": [
+                  {
+                    "FontSize": 20,
+                    "LabelText": "Hủy Bỏ",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "R": 71,
+                      "G": 71,
+                      "B": 71
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 70.5,
+                      "Y": 30.0
+                    },
+                    "Scale": {
+                      "ScaleX": 0.9,
+                      "ScaleY": 0.9
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.4326,
+                      "Y": 0.4333
+                    },
+                    "LeftMargin": 40.0,
+                    "RightMargin": 40.0,
+                    "TopMargin": 17.0,
+                    "BottomMargin": 17.0,
+                    "Tag": 15,
+                    "ActionTag": 375165333,
+                    "Size": {
+                      "X": 61.0,
+                      "Y": 26.0
+                    },
+                    "Name": "cancelText",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": 972100891,
+                "Size": {
+                  "X": 141.0,
+                  "Y": 60.0
+                },
+                "Name": "cancelButton",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Press.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Art/GUIs/pop_up/button.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 107,
+                "Scale9Height": 38,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 273.7,
+                  "Y": 54.6
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.7,
+                  "Y": 0.2
+                },
+                "PreSize": {
+                  "X": 0.3504,
+                  "Y": 0.2198
+                },
+                "LeftMargin": 205.2,
+                "RightMargin": 48.8,
+                "TopMargin": 188.4,
+                "BottomMargin": 24.6,
+                "Tag": 14,
+                "Children": [
+                  {
+                    "FontSize": 20,
+                    "LabelText": "12345",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "R": 71,
+                      "G": 71,
+                      "B": 71
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 54.8,
+                      "Y": 30.0
+                    },
+                    "Scale": {
+                      "ScaleX": 0.9,
+                      "ScaleY": 0.9
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.4,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.3942,
+                      "Y": 0.4333
+                    },
+                    "LeftMargin": 27.8,
+                    "RightMargin": 55.2,
+                    "TopMargin": 17.0,
+                    "BottomMargin": 17.0,
+                    "Tag": 11,
+                    "ActionTag": 360712313,
+                    "Size": {
+                      "X": 54.0,
+                      "Y": 26.0
+                    },
+                    "Name": "useGemAmountText",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Art/GUIs/pop_up/G.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 15,
+                    "Scale9Width": 1,
+                    "Scale9Height": 3,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 113.025,
+                      "Y": 30.0
+                    },
+                    "Scale": {
+                      "ScaleX": 0.9,
+                      "ScaleY": 0.9
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.825,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.2263,
+                      "Y": 0.55
+                    },
+                    "LeftMargin": 97.525,
+                    "RightMargin": 8.475,
+                    "TopMargin": 13.5,
+                    "BottomMargin": 13.5,
+                    "Tag": 6,
+                    "ActionTag": 753270463,
+                    "Size": {
+                      "X": 31.0,
+                      "Y": 33.0
+                    },
+                    "Name": "gemIcon",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 1555955779,
+                "Size": {
+                  "X": 137.0,
+                  "Y": 60.0
+                },
+                "Name": "useGemButton",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": -767768461,
+            "Size": {
+              "X": 391.0,
+              "Y": 273.0
+            },
+            "Name": "useGemPopUp",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Art/Fonts/UTM_Swiss_721_Black_Condensed.ttf",
+        "Art/GUIs/pop_up/button.png",
+        "Art/GUIs/pop_up/button2.png",
+        "Art/GUIs/pop_up/G.png",
+        "Art/GUIs/shop_gui/gold.png",
+        "Art/GUIs/upgrade_building_gui/BG.png",
+        "Default/Button_Disable.png",
+        "Default/Button_Press.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
