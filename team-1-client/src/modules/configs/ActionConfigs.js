@@ -49,69 +49,25 @@ const ACTION_TEMPLATES = {
         label: "Tháo dỡ",
         iconRes: { normal: res.remove_icon_png, pressed: res.remove_icon_2_png, disabled: res.button_disable_png },
         callback: function(obstacle, mainScene) {
-            cc.log("Attempting to remove obstacle: " + obstacle.obstacleIndex);
+            // Logic cũ đã được loại bỏ hoàn toàn.
+            // Giờ đây chỉ cần tạo actionConfig và gọi UseGController.
+            cc.log("ActionConfigs: 'remove' button clicked for obstacle " + obstacle.obstacleIndex);
 
-            var config = ItemConfigUtils.getBuildingConfig({buildingType: obstacle.obstacleType})
-            if (!config|| typeof config.buildTime === 'undefined') {
-                cc.error("ActionConfigs/Remove: Obstacle config is missing cost or buildTime.");
-                return;
-            }
-
-            var cost = config.gold || config.elixir || 0;
-            var resourceType = config.gold ? 'gold' : 'oil';
-            var removalTime = config.buildTime;
-
-            var playerDataManager = PlayerDataManager.getInstance();
-            var builderManager = BuilderManager.getInstance();
-
-            if (playerDataManager.getResourceAmount(resourceType) < cost) {
-                cc.log("Not enough " + resourceType + ". Triggering Use Gem Popup.");
-
-                var missingAmount = cost - playerDataManager.getResourceAmount(resourceType);
-                var popupTypeForGem = resourceType === 'gold' ? 'GOLD' : 'OIL';
-
-                var popupConfig = {
-                    type: popupTypeForGem,
-                    amount: missingAmount,
-                    resource: resourceType,
-                    target: obstacle,
-                    mainUIInstance: mainScene,
-                    successCallback: function() {
-                        ActionConfigs.handleObstacleAction(obstacle, mainScene);
+            var actionConfig = {
+                actionType: 'REMOVE_OBSTACLE',
+                target: obstacle,
+                mainUIInstance: mainScene,
+                onCancel: function() {
+                    cc.log("Remove obstacle action was canceled by user.");
+                    // Nếu cần, có thể thêm logic hủy ở đây, ví dụ như bỏ chọn vật cản.
+                    if (mainScene && mainScene.activeBuilding) {
+                        BuildingsController.getInstance().deActivateAsset(mainScene, mainScene.activeBuilding);
+                        mainScene.activeBuilding = null;
                     }
-                };
+                }
+            };
 
-                UIController.showUseGemPopupWithOptions(mainScene, popupConfig);
-                return; // Stop here until the player buys resources
-            }
-
-            // 3. If resources are sufficient, try to assign a builder
-            // We use the new UNIFIED assignment function from the refactored manager.
-            if (builderManager.assignBuilderToTask(obstacle) !== -1) {
-                // A builder was successfully assigned. Proceed with the removal.
-                // 4. Subtract resources
-                playerDataManager.subtractResources(resourceType, cost);
-
-                // 5. Set the obstacle's state to start the timer
-                obstacle.setState(BUILDING_STATES.CONSTRUCTING); // Re-using this state for "removing"
-                obstacle.finishBuildingTime = Math.floor(Date.now() / 1000) + removalTime;
-
-                // 6. Show the progress bar
-                BuildingsManager.getInstance().toggleUpgradingIndicator(obstacle, true);
-
-                gv.testnetwork.connector.sendRemoveObstacleRequest(obstacle.obstacleType, obstacle.obstacleIndex);
-
-                // 7. Hide the interaction panel
-                BuildingsController.getInstance().deActivateAsset(mainScene, mainScene.activeBuilding);
-                mainScene.activeBuilding = null;
-                
-                mainScene.interactionPanel.hidePanel();
-
-            } else {
-                // No free builder was found.
-                cc.log("No free builders available to remove obstacle.");
-                // You can optionally show a "all builders busy" message to the player here.
-            }
+            UseGController.requestAction(actionConfig);
         }
     },
     trainTroops: {

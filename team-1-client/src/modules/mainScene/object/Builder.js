@@ -8,74 +8,46 @@ var builderIdCounter = 0;
 
 var Builder = cc.Node.extend({
     id: null,
-    gridX: 0,
-    gridY: 0,
     sprite: null,
     animations: null,
-    currentAnimationName: null,
-    currentDirection: null,
-
     builderState: null,
     targetBuilding: null,
-    path: null,
-    currentPathIndex: 0,
-
     moveSpeed: 100,
-    workSpeed: 1.0,
+    currentDirection: "S",
 
     ctor: function(pathfinder, gridSystem) {
         this._super();
         this.id = "builder_" + (builderIdCounter++);
-        this.gridX = 0;
-        this.gridY = 0;
         this._pathfinder = pathfinder;
         this._gridSystem = gridSystem;
-
         this.builderState = BUILDER_STATE.IDLE;
-
         this.sprite = new cc.Sprite();
         this.addChild(this.sprite);
-
         this._setupAnimations();
         this.playAnimation("idle", "S", true);
-        this.currentDirection = "S";
-
-        this.scheduleUpdate();
-    },
-
-    update: function(dt) {
-        if (this.builderState === BUILDER_STATE.WORKING) {
-            // Logic for working state if any
-        }
     },
 
     // =================================================================
-    // HÀM MỚI: Ra lệnh cho thợ xây đi thẳng đến công trình tiếp theo
+    // HÀM MỚI ĐƯỢC THÊM VÀO
     // =================================================================
-    startMovingToNewTask: function(targetBuilding) {
-        cc.log("Builder " + this.id + ": Rerouting directly to new task: " + targetBuilding.buildingType);
-        this.stopAllActions(); // Dừng hành động "làm việc"
-
-        // Vị trí bắt đầu chính là vị trí hiện tại của thợ xây
-        const startPos = this.getPosition();
-        this.startMovingToBuilding(startPos, targetBuilding);
+    rerouteToTask: function(newTargetBuilding) {
+        cc.log("Builder " + this.id + ": Rerouting directly to new task: " + newTargetBuilding.buildingType);
+        this.stopAllActions();
+        this.targetBuilding = newTargetBuilding;
+        this.builderState = BUILDER_STATE.MOVING;
+        this.startMovingToBuilding(this.getPosition(), newTargetBuilding);
     },
-
-    setPath: function(path) {
-        this.path = path;
-        this.currentPathIndex = 0;
-    },
+    // =================================================================
 
     startMovingToBuilding: function(startPos, targetBuilding) {
-        if (!targetBuilding) {
-            cc.error("ERROR: Builder.startMovingToBuilding was called with an undefined targetBuilding.");
+        this.stopAllActions();
+        if (!targetBuilding || !targetBuilding.config) {
+            cc.error("Builder: Invalid targetBuilding provided to startMovingToBuilding.");
             this.builderState = BUILDER_STATE.IDLE;
             return;
         }
-
         this.targetBuilding = targetBuilding;
         this.builderState = BUILDER_STATE.MOVING;
-
         this.setPosition(startPos);
         this.setVisible(true);
 
@@ -86,26 +58,10 @@ var Builder = cc.Node.extend({
         var targetBuildingWidth = targetBuilding.config.size.width;
         var targetBuildingHeight = targetBuilding.config.size.height;
 
-        var endGridPos = null;
-        for (var x = targetBuildingGridX - 1; x <= targetBuildingGridX + targetBuildingWidth; x++) {
-            for (var y = targetBuildingGridY - 1; y <= targetBuildingGridY + targetBuildingHeight; y++) {
-                if (x >= targetBuildingGridX && x < targetBuildingGridX + targetBuildingWidth &&
-                    y >= targetBuildingGridY && y < targetBuildingGridY + targetBuildingHeight) {
-                    continue;
-                }
-                if (this._pathfinder.pathfindingGrid.isWalkable(x, y)) {
-                    endGridPos = { x: x, y: y };
-                    break;
-                }
-            }
-            if (endGridPos) break;
-        }
+        var endGridPos = this._findWalkableAdjacentTile(targetBuildingGridX, targetBuildingGridY, targetBuildingWidth, targetBuildingHeight);
 
         if (!endGridPos) {
-            cc.warn("Builder: Could not find a walkable tile adjacent to target building. Moving directly to center.");
-            var targetBuildingWorldPos = targetBuilding.compositeNode.getParent().convertToWorldSpace(targetBuilding.compositeNode.getPosition());
-            var targetBuildingSize = targetBuilding.compositeNode.getContentSize();
-            var targetCenter = cc.p(targetBuildingWorldPos.x + targetBuildingSize.width / 2, targetBuildingWorldPos.y + targetBuildingSize.height / 2);
+            var targetCenter = targetBuilding.getCenterPosition ? targetBuilding.getCenterPosition() : targetBuilding.getPosition();
             this.runAction(cc.sequence(
                 cc.moveTo(cc.pDistance(startPos, targetCenter) / this.moveSpeed, targetCenter),
                 this._createFinalPositioningAction()
@@ -118,21 +74,9 @@ var Builder = cc.Node.extend({
 
         if (path && path.length > 0) {
             var movementActions = this._buildMovementActions(path);
-            var finalAction = this._createFinalPositioningAction();
-            movementActions.push(finalAction);
-
-            if (movementActions.length > 0) {
-                this.runAction(cc.sequence(movementActions));
-            } else {
-                cc.warn("Builder: Path found but no movement actions generated. Moving directly to target.");
-                var targetNodePos = this._gridSystem.gridToLocal(endGridPos.x, endGridPos.y);
-                this.runAction(cc.sequence(
-                    cc.moveTo(cc.pDistance(startPos, targetNodePos) / this.moveSpeed, targetNodePos),
-                    this._createFinalPositioningAction()
-                ));
-            }
+            movementActions.push(this._createFinalPositioningAction());
+            this.runAction(cc.sequence(movementActions));
         } else {
-            cc.warn("Builder: No path found to target building. Moving directly to target.");
             var targetNodePos = this._gridSystem.gridToLocal(endGridPos.x, endGridPos.y);
             this.runAction(cc.sequence(
                 cc.moveTo(cc.pDistance(startPos, targetNodePos) / this.moveSpeed, targetNodePos),
@@ -141,121 +85,98 @@ var Builder = cc.Node.extend({
         }
     },
 
-    _updateBuilderZOrder: function(gridPos) {
-        if (!gridPos || typeof gridPos.x === 'undefined' || typeof gridPos.y === 'undefined') {
-            cc.warn("Builder: _updateBuilderZOrder called with invalid arguments.");
-            return;
+    _findWalkableAdjacentTile: function(gridX, gridY, width, height) {
+        for (var x = gridX - 1; x <= gridX + width; x++) {
+            for (var y = gridY - 1; y <= gridY + height; y++) {
+                if (x >= gridX && x < gridX + width && y >= gridY && y < gridY + height) continue;
+                if (this._pathfinder.pathfindingGrid.isWalkable(x, y)) {
+                    return { x: x, y: y };
+                }
+            }
         }
-        this.gridX = gridPos.x;
-        this.gridY = gridPos.y;
-        const newZOrder = MAX_Z_ORDER - (40 * gridPos.x + gridPos.y);
-        this.setLocalZOrder(newZOrder);
+        return null;
+    },
+
+    _updateBuilderZOrder: function(gridPos) {
+        if (!gridPos) return;
+        this.setLocalZOrder(MAX_Z_ORDER - (40 * gridPos.x + gridPos.y));
     },
 
     _buildMovementActions: function(pathNodes) {
         var actionsArray = [];
         var currentPosition = this.getPosition();
-
-        if (pathNodes.length > 0) {
-            var firstNodePos = this._gridSystem.gridToLocal(pathNodes[0].x, pathNodes[0].y);
-            this.currentDirection = Utils.calculateDirection(currentPosition, firstNodePos);
-        }
-
         for (var i = 0; i < pathNodes.length; i++) {
             var gridNode = pathNodes[i];
             var nextNodePos = this._gridSystem.gridToLocal(gridNode.x, gridNode.y);
             var directionForSegment = Utils.calculateDirection(currentPosition, nextNodePos);
+            this.currentDirection = directionForSegment;
 
             var updateAndAnimateCallback = (function(dir, newGridPos) {
                 return function() {
                     this._updateBuilderZOrder(newGridPos);
                     this.playAnimation("run", dir, true);
                 };
-            })(directionForSegment, gridNode);
+            })(directionForSegment, gridNode); // KHÔNG DÙNG .bind(this)
+
+            // =================================================================
+            // SỬA LỖI Ở ĐÂY: Truyền `this` vào cc.callFunc để giữ đúng context
+            // =================================================================
             actionsArray.push(cc.callFunc(updateAndAnimateCallback, this));
+            // =================================================================
 
-            var moveSpeed = this.moveSpeed;
-            var duration = moveSpeed > 0 ? cc.pDistance(currentPosition, nextNodePos) / moveSpeed : 0.2; // Calculate duration based on distance
+            var duration = cc.pDistance(currentPosition, nextNodePos) / this.moveSpeed;
             actionsArray.push(cc.moveTo(duration, nextNodePos));
-
             currentPosition = nextNodePos;
         }
         return actionsArray;
     },
 
-    _createFinalPositioningAction: function(callback) {
+    _createFinalPositioningAction: function() {
         return cc.callFunc(function() {
             var finalGridPos = this._gridSystem.localToGrid(this.getPositionX(), this.getPositionY());
             this._updateBuilderZOrder(finalGridPos);
             this.startWorkingOnBuilding();
-            if (callback) {
-                callback.call(this);
-            }
         }, this);
     },
 
     startWorkingOnBuilding: function() {
-        cc.log("Builder " + this.id + ": startWorkingOnBuilding called. targetBuilding: " + (this.targetBuilding ? this.targetBuilding.buildingType : "None"));
         if (!this.targetBuilding) {
             this.stopAllActionsAndHide();
             return;
         }
         this.stopAllActions();
         this.builderState = BUILDER_STATE.WORKING;
-        this.playAnimation("attack01", this.currentDirection, true);
-        cc.log("Builder " + this.id + ": State set to WORKING. Playing attack01 animation.");
+        this.playAnimation("attack01", this.currentDirection || "S", true);
     },
 
     returnToHutAndHide: function(assignedHut) {
-        cc.log("Builder " + this.id + ": returnToHutAndHide called.");
         this.stopAllActions();
         this.builderState = BUILDER_STATE.MOVING;
-
         if (!assignedHut || !assignedHut.compositeNode) {
-            cc.warn("Builder " + this.id + ": No valid assigned hut provided to return to. Hiding builder.");
             this.stopAllActionsAndHide();
             return;
         }
-
-        const targetHutPos = assignedHut.compositeNode.getPosition();
-        cc.log("Builder " + this.id + ": Target Builder Hut position: (" + targetHutPos.x + ", " + targetHutPos.y + ").");
-
         var startGrid = this._gridSystem.localToGrid(this.getPosition().x, this.getPosition().y);
-        var endGrid = this._gridSystem.localToGrid(targetHutPos.x, targetHutPos.y);
-        cc.log("Builder " + this.id + ": Pathfinding from (" + startGrid.x + ", " + startGrid.y + ") to (" + endGrid.x + ", " + endGrid.y + ").");
-
+        var endGrid = this._gridSystem.localToGrid(assignedHut.compositeNode.getPosition().x, assignedHut.compositeNode.getPosition().y);
         var pathResult = this._pathfinder.findPath(startGrid.x, startGrid.y, endGrid.x, endGrid.y);
         var path = pathResult && pathResult.path ? pathResult.path : null;
-
         if (path && path.length > 0) {
-            cc.log("Builder " + this.id + ": Path found to Builder Hut. Path length: " + path.length);
             var movementActions = this._buildMovementActions(path);
-            var finalAction = cc.callFunc(function() {
-                cc.log("Builder " + this.id + ": Reached hut. Hiding.");
-                this.stopAllActionsAndHide();
-            }, this);
-            movementActions.push(finalAction);
-
+            movementActions.push(cc.callFunc(this.stopAllActionsAndHide, this));
             this.runAction(cc.sequence(movementActions));
         } else {
-            cc.warn("Builder " + this.id + ": No path found to Builder Hut. Hiding builder directly.");
             this.stopAllActionsAndHide();
         }
     },
 
     stopAllActionsAndHide: function() {
-        cc.log("Builder " + this.id + ": stopAllActionsAndHide called.");
         this.stopAllActions();
         this.builderState = BUILDER_STATE.IDLE;
         this.targetBuilding = null;
-        this.path = null;
-        this.currentPathIndex = 0;
         this.setVisible(false);
-        this.sprite.stopAllActions();
-        cc.log("Builder " + this.id + ": Hidden and state set to IDLE.");
+        if(this.sprite) this.sprite.stopAllActions();
     },
 
-    // ... Các hàm animation không đổi ...
     _createAnimationFrames: function(basePath, padding, dirConfig, animName, directionString) {
         const frames = [];
         for (let i = 0; i < dirConfig.frameCount; i++) {

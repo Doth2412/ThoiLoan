@@ -710,7 +710,6 @@ testnetwork.packetMap[gv.CMD.USE_G] = fr.InPacket.extend({
         useGPacket.updatedResources = {
             gold: this.getInt(), oil: this.getInt(), gem: this.getInt()
         };
-        PlayerDataManager.getInstance().updateWithUseGData(useGPacket);
     }
 });
 

@@ -1,10 +1,13 @@
 var BuilderManager = cc.Class.extend({
     playerDataManager: null,
     buildingsManager: null,
-    busyBuilders: null,
+    busyBuilders: null, // Sẽ lưu trữ key theo định dạng "assetType_index"
     _builderHutAssignments: null,
     pendingBuildUpgradeRequest: null,
-
+    _builders: null,
+    _pathfinder: null,
+    _gridSystem: null,
+    _mainUIInstance: null,
 
     ctor: function() {
         this.playerDataManager = PlayerDataManager.getInstance();
@@ -13,131 +16,329 @@ var BuilderManager = cc.Class.extend({
         this._builderHutAssignments = {};
         this.pendingBuildUpgradeRequest = null;
         this._builders = {};
-        this._pathfinder = null;
-        this._gridSystem = null;
-        this._mainUIInstance = null;
-        cc.log("BuilderManager initialized.");
     },
 
     init: function(pathfinder, gridSystem, mainUIInstance) {
         this._pathfinder = pathfinder;
         this._gridSystem = gridSystem;
         this._mainUIInstance = mainUIInstance;
-        cc.log("BuilderManager initialized with pathfinder, gridSystem, and mainUIInstance.");
-
-        this._buildingMovedListener = cc.EventListener.create({
-            event: cc.EventListener.CUSTOM,
-            eventName: "BUILDING_MOVED",
-            callback: this._handleBuildingMoved.bind(this)
+        var self = this;
+        cc.eventManager.addCustomListener("BUILDING_MOVED", function(event) {
+            self._handleBuildingMoved(event);
         });
-        cc.eventManager.addListener(this._buildingMovedListener, 1);
     },
 
-    _handleBuildingMoved: function(event) {
-        var movedBuilding = event.getUserData().building;
-        cc.log("BuilderManager: Received BUILDING_MOVED event for " + movedBuilding.buildingType + " index " + movedBuilding.buildingIndex);
+    _getAssetKey: function(asset) {
+        // 1. Kiểm tra asset và assetType có hợp lệ không
+        if (!asset || !asset.assetType) {
+            cc.warn("BuilderManager: Asset không hợp lệ hoặc thiếu assetType.", asset);
+            return null;
+        }
 
-        var builderId = this.getBuilderIdForTask(movedBuilding);
-        if (builderId !== -1 && this._builders[builderId]) {
-            var builderInstance = this._builders[builderId];
-            if (builderInstance.builderState === BUILDER_STATE.WORKING && builderInstance.targetBuilding === movedBuilding) {
-                cc.log("BuilderManager: Builder " + builderId + " is working on moved building. Repositioning.");
-                builderInstance.stopAllActions();
-                builderInstance.startMovingToBuilding(builderInstance.getPosition(), movedBuilding);
-            } else {
-                cc.log("BuilderManager: Builder " + builderId + " is not working on this moved building or not in WORKING state. Current state: " + builderInstance.builderState);
+        var index;
+        // 2. Dựa vào assetType để lấy đúng index
+        if (asset.assetType === 'building') {
+            index = asset.buildingIndex;
+        } else if (asset.assetType === 'obstacle') {
+            index = asset.obstacleIndex;
+        }
+
+        // 3. Kiểm tra xem index có tồn tại không
+        if (typeof index === 'undefined' || index === null) {
+            cc.warn("BuilderManager: Không tìm thấy index hợp lệ cho assetType: " + asset.assetType, asset);
+            return null;
+        }
+
+        // 4. Trả về key đã được tạo một cách nhất quán
+        return asset.assetType + "_" + index;
+    },
+
+    handleDirectTransfer: function(taskToFinish, newActionConfig) {
+        var newAsset = newActionConfig.target;
+        var builderId = this.getBuilderIdForTask(taskToFinish);
+        var builderInstance = this._builders[builderId];
+
+        if (!builderInstance || builderId === -1) {
+            if(newActionConfig.onCancel) newActionConfig.onCancel();
+            return;
+        }
+
+        // --- BƯỚC 1: Hoàn thành dứt điểm nhiệm vụ cũ (Task A) ---
+        cc.log("Silently finishing old task: " + (taskToFinish.buildingType || taskToFinish.obstacleType));
+        if (taskToFinish.assetType === 'obstacle') {
+            var bm = BuildingsManager.getInstance();
+            bm.toggleUpgradingIndicator(taskToFinish, false);
+            bm.removeObstacle(taskToFinish.obstacleIndex);
+            gv.testnetwork.connector.sendRemoveObstacleComplete(taskToFinish.obstacleType, taskToFinish.obstacleIndex, builderId);
+        } else if (taskToFinish.assetType === 'building') {
+            if (taskToFinish.buildingState === BUILDING_STATES.CONSTRUCTING) {
+                taskToFinish.level = 1;
+                taskToFinish.setState(BUILDING_STATES.OPERATING);
+                BuildingsManager.getInstance().toggleUpgradingIndicator(taskToFinish, false);
+                gv.testnetwork.connector.sendBuildComplete(taskToFinish.buildingType, taskToFinish.buildingIndex);
+            } else if (taskToFinish.buildingState === BUILDING_STATES.UPGRADING) {
+                taskToFinish.level++;
+                taskToFinish.setState(BUILDING_STATES.OPERATING);
+                BuildingsManager.getInstance().toggleUpgradingIndicator(taskToFinish, false);
+                UpgradeBuildingController._playLevelUpEffect(taskToFinish);
+                gv.testnetwork.connector.sendUpgradeBuildingComplete(taskToFinish.buildingType, taskToFinish.buildingIndex, 1);
             }
-        } else {
-            cc.log("BuilderManager: No builder assigned to moved building " + movedBuilding.buildingType + " index " + movedBuilding.buildingIndex);
         }
+        PlayerDataManager.getInstance().notifyResourceUpdate("gold");
+        PlayerDataManager.getInstance().notifyResourceUpdate("oil");
+
+        // --- BƯỚC 2: Cập nhật lại dữ liệu của thợ xây ---
+        var oldAssetKey = this._getAssetKey(taskToFinish);
+        var newAssetKey = this._getAssetKey(newAsset);
+        if (oldAssetKey) delete this.busyBuilders[oldAssetKey];
+        if (newAssetKey) this.busyBuilders[newAssetKey] = builderId;
+        cc.log("Builder #" + builderId + " task directly transferred from " + oldAssetKey + " to " + newAssetKey);
+
+        // --- BƯỚC 3: Bắt đầu cụ thể nhiệm vụ mới (Task B) ---
+        // **LOẠI BỎ LỆNH GỌI UseGController._executeCoreAction**
+        this._executeConcreteAction(newActionConfig, builderId);
+
+        // --- BƯỚC 4: Ra lệnh cho thợ xây di chuyển ---
+        builderInstance.rerouteToTask(newAsset);
     },
 
-    requestBuilderForBuilding: function(building, assignedHut) {
-        if (!building || !assignedHut) {
-            cc.error("BuilderManager.requestBuilderForBuilding: Building or assignedHut is null.");
+    requestAction: function(actionConfig) {
+        var requirements = UseGController._getRequirements(actionConfig);
+        var missingResource = UseGController._checkMissingResources(requirements);
+        if (missingResource.amount > 0) {
+            UseGController._showBuyResourcePopup(missingResource, actionConfig);
             return;
         }
-
-        if (!this._pathfinder || !this._gridSystem || !this._mainUIInstance) {
-            cc.error("BuilderManager not fully initialized. Missing pathfinder, gridSystem, or mainUIInstance.");
+        if (requirements && !requirements.needsBuilder) {
+            UseGController._executeCoreAction(actionConfig);
             return;
         }
-
-        let builderId = this.getBuilderIdForTask(building);
-        if (builderId === -1) {
-            cc.warn("BuilderManager.requestBuilderForBuilding: No builder assigned to " + building.buildingType + " index " + building.buildingIndex + ". Cannot display visual builder.");
-            return;
-        }
-
-        let builderInstance = this._builders[builderId];
-        if (!builderInstance) {
-            builderInstance = new Builder(this._pathfinder, this._gridSystem);
-            this._builders[builderId] = builderInstance;
-            if (this._mainUIInstance && this._mainUIInstance.mapElement) {
-                this._mainUIInstance.mapElement.addChild(builderInstance);
-            } else {
-                cc.error("BuilderManager: Cannot add builder to mapElement. mainUIInstance or mapElement is null.");
+        if (this.getFreeBuildersCount() > 0) {
+            var builderId = this.assignBuilderToTask(actionConfig.target);
+            this._executeConcreteAction(actionConfig, builderId);
+        } else {
+            var buildingToRush = this.getBuildingToFinishForFreeBuilder();
+            if (!buildingToRush) {
+                if (actionConfig.onCancel) actionConfig.onCancel();
                 return;
             }
+            var remainingTime = Math.max(0, buildingToRush.finishBuildingTime - Math.floor(Date.now() / 1000));
+            var popupConfig = {
+                type: "FREE_BUILDER",
+                amount: remainingTime,
+                targetToRush: buildingToRush,
+                mainUIInstance: actionConfig.mainUIInstance,
+                successCallback: function() {
+                    this.handleDirectTransfer(buildingToRush, actionConfig);
+                }.bind(this),
+                cancelCallback: actionConfig.onCancel
+            };
+            UIController.showUseGemPopupWithOptions(actionConfig.mainUIInstance, popupConfig);
         }
-
-        // =================================================================
-        // THÊM BƯỚC KIỂM TRA: Nếu thợ xây đã trên đường đến đúng mục tiêu này,
-        // thì không ra lệnh di chuyển mới nữa để tránh lỗi hình ảnh.
-        // =================================================================
-        if (builderInstance.builderState === BUILDER_STATE.MOVING && builderInstance.targetBuilding === building) {
-            cc.log("BuilderManager: Builder " + builderId + " is already en route to this target. No new move command issued.");
-            return;
-        }
-
-        const startPos = assignedHut.compositeNode.getPosition();
-        builderInstance.startMovingToBuilding(startPos, building);
     },
 
-    // =================================================================
-    // SỬA LẠI HOÀN TOÀN HÀM NÀY
-    // =================================================================
-    onBuildingOperationComplete: function(completedAsset) {
-        cc.log("BuilderManager: Operation complete for buildingIndex: " + completedAsset.buildingIndex);
-        let builderId = this.getBuilderIdForTask(completedAsset);
+    /**
+     * HÀM QUAN TRỌNG: Bổ sung các case còn thiếu
+     */
+    _executeConcreteAction: function(actionConfig, builderId) {
+        var requirements = UseGController._getRequirements(actionConfig);
+        if (requirements.resourceType && requirements.cost > 0) {
+            var pdm = PlayerDataManager.getInstance();
+            pdm.subtractResources(requirements.resourceType, requirements.cost);
+            pdm.notifyResourceUpdate(requirements.resourceType);
+        }
+        var target = actionConfig.target;
+        var actionType = actionConfig.actionType;
+        var mainScene = actionConfig.mainUIInstance;
+        switch (actionType) {
+            case 'UPGRADE':
+                target.setState(BUILDING_STATES.UPGRADING);
+                target.startBuildingTime = Math.floor(Date.now() / 1000);
+                var nextLevelConfig = ItemConfigUtils.getBuildingConfig(target, target.level + 1);
+                target.finishBuildingTime = target.startBuildingTime + nextLevelConfig.buildTime;
+                BuildingsManager.getInstance().toggleUpgradingIndicator(target, true);
+                gv.testnetwork.connector.sendUpgradeBuildingRequest(target.buildingType, target.buildingIndex);
+                cc.log("BuilderManager: Started UPGRADE for " + target.buildingType);
+                break;
+            case 'BUILD':
+                target.setState(BUILDING_STATES.CONSTRUCTING);
+                target.startBuildingTime = Math.floor(Date.now() / 1000);
+                var config = ItemConfigUtils.getBuildingConfig(target, 1);
+                target.finishBuildingTime = target.startBuildingTime + config.buildTime;
+                BuildingsManager.getInstance().toggleUpgradingIndicator(target, true);
+                gv.testnetwork.connector.sendBuyBuildingRequest(target.buildingType, target.posX, target.posY);
+                cc.log("BuilderManager: Started BUILD for " + target.buildingType);
+                target.isInBuyingPhase = false;
+                var buyBuildingController = BuyBuildingController;
 
-        if (builderId !== -1) {
-            let builderInstance = this._builders[builderId];
+                // Ẩn các nút xác nhận/hủy
+                if (buyBuildingController.placementIndicator && buyBuildingController.placementIndicator.getParent()) {
+                    buyBuildingController.placementIndicator.removeFromParent();
+                    buyBuildingController.placementIndicator = null;
+                }
 
-            // LOGIC MỚI: Kiểm tra xem có công việc nào đang chờ không
-            if (this.pendingBuildUpgradeRequest && builderInstance) {
-                const nextTaskBuilding = this.pendingBuildUpgradeRequest.building;
-                cc.log("BuilderManager: Pending task found. Rerouting builder " + builderId + " directly.");
-                // Ra lệnh cho thợ xây đi thẳng đến công trình mới
-                builderInstance.startMovingToNewTask(nextTaskBuilding);
+                if (mainScene && mainScene.hudLayerInstance) {
+                    mainScene.hudLayerInstance.setVisible(true);
+                }
+                if (mainScene.activeBuilding) {
+                    BuildingsController.getInstance().deActivateAsset(mainScene, mainScene.activeBuilding);
+                    mainScene.activeBuilding = null;
+                }
+                // Đặt lại trạng thái của game
+                if (typeof InputManager !== 'undefined' && InputManager.getInstance()) {
+                    InputManager.getInstance().setMode(INPUT_MODE.NONE);
+                }
+                buyBuildingController.currentBuyingBuilding = null;
+                break;
+            case 'REMOVE_OBSTACLE':
+                target.setState(BUILDING_STATES.CONSTRUCTING);
+                var obsConfig = ItemConfigUtils.getBuildingConfig({ buildingType: target.obstacleType });
+                target.finishBuildingTime = Math.floor(Date.now() / 1000) + obsConfig.buildTime;
+                BuildingsManager.getInstance().toggleUpgradingIndicator(target, true);
+                gv.testnetwork.connector.sendRemoveObstacleRequest(target.obstacleType, target.obstacleIndex);
+                cc.log("BuilderManager: Started REMOVE_OBSTACLE for " + target.obstacleType);
+                break;
+        }
+        var builderInstance = this._builders[builderId];
+        if (builderInstance) {
+            var assignedHutIndex = this._builderHutAssignments[builderId];
+            var hut = BuildingsManager.getInstance().getBuildingByIndex(assignedHutIndex);
+            if (hut) {
+                builderInstance.startMovingToBuilding(hut.compositeNode.getPosition(), target);
             }
-            // LOGIC CŨ: Nếu không có việc chờ, cho thợ xây về nhà
-            else if (builderInstance) {
-                let assignedHutIndex = this._builderHutAssignments[builderId];
-                let hut = this.buildingsManager.getBuildingByIndex(assignedHutIndex);
-                if (hut) {
-                    cc.log("BuilderManager: No pending task. Builder " + builderId + " returning to hut " + assignedHutIndex);
-                    builderInstance.returnToHutAndHide(hut);
-                } else {
-                    cc.warn("BuilderManager: Could not find assigned hut for builder " + builderId + ". Hiding builder.");
-                    builderInstance.stopAllActionsAndHide();
+        }
+        if (actionConfig.mainUIInstance) {
+            var mainScene = actionConfig.mainUIInstance;
+            if (mainScene.interactionPanel) mainScene.interactionPanel.hidePanel();
+            if (mainScene.activeBuilding) {
+                BuildingsController.getInstance().deActivateAsset(mainScene, mainScene.activeBuilding);
+                mainScene.activeBuilding = null;
+            }
+        }
+    },
+
+    requestBuildUpgrade: function (building) {
+        if (building.buildingType === "BDH_1" && building.level === 0) {
+            return { success: true, builderAssigned: false };
+        }
+        if (this.assignBuilderToTask(building) !== -1) {
+            return { success: true, builderAssigned: true };
+        }
+        return { success: false, builderAssigned: false, reason: "Failed to assign builder." };
+    },
+
+    assignBuilderToTask: function(asset) {
+        var freeBuilderId = this.findFreeBuilderId();
+        if (freeBuilderId !== -1) {
+            var availableHut = this.findAvailableBuilderHut();
+            if (availableHut) {
+                var assetKey = this._getAssetKey(asset);
+                if (assetKey) {
+                    this.busyBuilders[assetKey] = freeBuilderId;
+                    this._builderHutAssignments[freeBuilderId] = availableHut.buildingIndex;
+                    cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.BUILDER_STATUS_UPDATED);
+                    this.requestBuilderForBuilding(asset, availableHut);
+                    return freeBuilderId;
                 }
             }
+        }
+        return -1;
+    },
+
+    freeBuilderFromTask: function(asset) {
+        var assetKey = this._getAssetKey(asset);
+        if (assetKey && this.busyBuilders.hasOwnProperty(assetKey)) {
+            var builderId = this.busyBuilders[assetKey];
+            delete this.busyBuilders[assetKey];
+            if (this._builderHutAssignments.hasOwnProperty(builderId)) {
+                delete this._builderHutAssignments[builderId];
+            }
+            cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.BUILDER_STATUS_UPDATED);
+        }
+    },
+
+    getBuilderIdForTask: function(asset) {
+        var assetKey = this._getAssetKey(asset);
+        if (assetKey && this.busyBuilders.hasOwnProperty(assetKey)) {
+            return this.busyBuilders[assetKey];
+        }
+        return -1;
+    },
+
+    getBuildingToFinishForFreeBuilder: function() {
+        var targetAsset = null;
+        var minRemainingTime = Infinity;
+        var now = Math.floor(Date.now() / 1000);
+
+        // Lặp qua tất cả các thợ đang bận
+        for (var assetKey in this.busyBuilders) {
+            if (!this.busyBuilders.hasOwnProperty(assetKey)) continue;
+
+            var parts = assetKey.split('_');
+            var assetType = parts[0];
+            var assetIndex = parseInt(parts[1]);
+            var asset = null;
+
+            // =================================================================
+            // SỬA LỖI Ở ĐÂY: Thêm logic để tìm cả obstacle, không chỉ building
+            // =================================================================
+            if (assetType === 'building') {
+                // Logic cũ: Chỉ tìm trong danh sách nhà chính
+                asset = this.buildingsManager.getBuildingByIndex(assetIndex);
+            } else if (assetType === 'obstacle') {
+                // Logic mới: Tìm trong danh sách vật cản nếu assetType là 'obstacle'
+                // Giả định rằng BuildingsManager của bạn có hàm getObstacleByIndex
+                if (this.buildingsManager.getObstacleByIndex) {
+                    asset = this.buildingsManager.getObstacleByIndex(assetIndex);
+                }
+            }
+            // =================================================================
+
+            // Log cảnh báo nếu không tìm thấy asset tương ứng với key
+            if (!asset) {
+                cc.warn("BuilderManager: Could not find asset for key: " + assetKey);
+                continue; // Bỏ qua và xét asset tiếp theo
+            }
+
+            // Kiểm tra xem asset có đang trong trạng thái xây/nâng cấp hợp lệ không
+            var isCorrectState = (asset.buildingState === BUILDING_STATES.CONSTRUCTING || asset.buildingState === BUILDING_STATES.UPGRADING);
+            var isTimeValid = (typeof asset.finishBuildingTime === 'number' && asset.finishBuildingTime > now);
+
+            if (isCorrectState && isTimeValid) {
+                var remainingTime = asset.finishBuildingTime - now;
+                if (remainingTime < minRemainingTime) {
+                    minRemainingTime = remainingTime;
+                    targetAsset = asset;
+                }
+            }
+        }
+
+        if (targetAsset) {
+            cc.log("BuilderManager: Selected asset to rush: " + (targetAsset.buildingType || targetAsset.obstacleType));
         } else {
-            cc.warn("BuilderManager: No builderId found for completed asset index: " + completedAsset.buildingIndex);
+            cc.log("BuilderManager: No suitable asset found to rush.");
         }
-
-        // Luôn giải phóng thợ về mặt logic để bắt đầu chuỗi sự kiện cho công việc tiếp theo
-        this.freeBuilderFromTask(completedAsset);
+        return targetAsset;
     },
 
-    _findBuilderHutPosition: function() {
-        const builderHuts = this.buildingsManager.getAllBuildings().filter(b => b.buildingType === "BDH_1" && b.buildingState === BUILDING_STATES.OPERATING);
-        if (builderHuts.length > 0) {
-            return builderHuts[0].compositeNode.getPosition();
+    // =================================================================
+    // SỬA LỖI Ở ĐÂY: Thêm lại các hàm bị thiếu
+    // =================================================================
+    getTotalBuilders: function() {
+        var count = 0;
+        var allBuildings = this.buildingsManager.getAllBuildings();
+        for (var i = 0; i < allBuildings.length; i++) {
+            if (allBuildings[i].buildingType === "BDH_1" && allBuildings[i].buildingState === BUILDING_STATES.OPERATING) {
+                count++;
+            }
         }
-        return null;
+        return count > 0 ? count : 1;
     },
+
+    getFreeBuildersCount: function() {
+        return Math.max(0, this.getTotalBuilders() - Object.keys(this.busyBuilders).length);
+    },
+    // =================================================================
 
     findFreeBuilderId: function() {
         var totalBuilders = this.getTotalBuilders();
@@ -148,294 +349,100 @@ var BuilderManager = cc.Class.extend({
             }
         }
         for (var i = 1; i <= totalBuilders; i++) {
-            if (busyIds.indexOf(i) === -1) {
-                return i;
-            }
-        }
-
-        return -1;
-    },
-
-    assignBuilderToTask: function(asset) {
-        let freeBuilderId = this.findFreeBuilderId();
-        if (freeBuilderId !== -1) {
-            let availableHut = this.findAvailableBuilderHut();
-            if (availableHut) {
-                if (typeof asset.buildingIndex !== 'undefined') {
-                    this.busyBuilders[asset.buildingIndex] = freeBuilderId;
-                    this._builderHutAssignments[freeBuilderId] = availableHut.buildingIndex;
-                    cc.log("BuilderManager: Assigned Builder #" + freeBuilderId + " from Hut " + availableHut.buildingIndex + " to buildingIndex: " + asset.buildingIndex);
-                    cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.BUILDER_STATUS_UPDATED);
-                    this.requestBuilderForBuilding(asset, availableHut);
-                    return freeBuilderId;
-                } else {
-                    cc.warn("BuilderManager: Asset provided to assignBuilderToTask does not have a buildingIndex.");
-                }
-            } else {
-                cc.warn("BuilderManager: No available builder huts found.");
-            }
-        }
-        cc.warn("BuilderManager: No free builders to assign to task.");
-        return -1;
-    },
-
-    freeBuilderFromTask: function(asset) {
-        if (typeof asset.buildingIndex !== 'undefined' && this.busyBuilders.hasOwnProperty(asset.buildingIndex)) {
-            let builderId = this.busyBuilders[asset.buildingIndex];
-            delete this.busyBuilders[asset.buildingIndex];
-            if (this._builderHutAssignments.hasOwnProperty(builderId)) {
-                delete this._builderHutAssignments[builderId];
-                cc.log("BuilderManager: Freed Hut assignment for Builder #" + builderId);
-            }
-            cc.log("BuilderManager: Freed Builder #" + builderId + " from buildingIndex: " + asset.buildingIndex);
-            cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.BUILDER_STATUS_UPDATED);
-            this._processPendingRequest();
-        } else {
-            cc.warn("BuilderManager: No builder was busy with buildingIndex: " + asset.buildingIndex + " to free.");
-        }
-    },
-
-    getBuilderIdForTask: function(asset) {
-        if (typeof asset.buildingIndex !== 'undefined' && this.busyBuilders.hasOwnProperty(asset.buildingIndex)) {
-            return this.busyBuilders[asset.buildingIndex];
+            if (busyIds.indexOf(i) === -1) return i;
         }
         return -1;
     },
 
     findAvailableBuilderHut: function() {
-        const allHuts = this.buildingsManager.getAllBuildings().filter(b => b.buildingType === "BDH_1" && b.buildingState === BUILDING_STATES.OPERATING);
-
+        var allHuts = this.buildingsManager.getAllBuildings().filter(function(b) { return b.buildingType === "BDH_1" && b.buildingState === BUILDING_STATES.OPERATING; });
         var assignedHutIndices = [];
         for (var builderId in this._builderHutAssignments) {
             if (this._builderHutAssignments.hasOwnProperty(builderId)) {
                 assignedHutIndices.push(this._builderHutAssignments[builderId]);
             }
         }
-
-        for (let i = 0; i < allHuts.length; i++) {
+        for (var i = 0; i < allHuts.length; i++) {
             if (assignedHutIndices.indexOf(allHuts[i].buildingIndex) === -1) {
                 return allHuts[i];
             }
         }
-
         return null;
     },
 
-    getTotalBuilders: function() {
-        let count = 0;
-        const allBuildings = this.buildingsManager.getAllBuildings();
-        for (let i = 0; i < allBuildings.length; i++) {
-            if (allBuildings[i].buildingType === "BDH_1" &&
-                allBuildings[i].buildingState !== BUILDING_STATES.CONSTRUCTING &&
-                allBuildings[i].buildingState !== BUILDING_STATES.PLACING &&
-                allBuildings[i].buildingState !== BUILDING_STATES.UPGRADING) {
-                count++;
+    requestBuilderForBuilding: function(building, assignedHut) {
+        if (!building || !assignedHut) return;
+        if (!this._pathfinder || !this._gridSystem || !this._mainUIInstance) return;
+
+        var builderId = this.getBuilderIdForTask(building);
+        if (builderId === -1) return;
+
+        var builderInstance = this._builders[builderId];
+        if (!builderInstance) {
+            builderInstance = new Builder(this._pathfinder, this._gridSystem);
+            this._builders[builderId] = builderInstance;
+            if (this._mainUIInstance && this._mainUIInstance.mapElement) {
+                this._mainUIInstance.mapElement.addChild(builderInstance);
             }
         }
-        return count > 0 ? count : 1;
+
+        if (builderInstance.builderState === BUILDER_STATE.MOVING && builderInstance.targetBuilding === building) return;
+
+        var startPos = assignedHut.compositeNode.getPosition();
+        builderInstance.startMovingToBuilding(startPos, building);
     },
 
-    getFreeBuildersCount: function() {
-        const totalBuilders = this.getTotalBuilders();
-        const busyCount = Object.keys(this.busyBuilders).length;
-        return Math.max(0, totalBuilders - busyCount);
-    },
-
-    assignBuilderToBuilding: function(buildingIndex) {
-        if (this.getFreeBuildersCount() > 0) {
-            if (this.busyBuilders.hasOwnProperty(buildingIndex.toString())) {
-                cc.warn("BuilderManager: Building " + buildingIndex + " already has a builder assigned.");
-                return true;
-            }
-            this.busyBuilders[buildingIndex.toString()] = true;
-            cc.log("BuilderManager: Assigned builder to buildingIndex: " + buildingIndex);
-
-            if (typeof cc.eventManager !== 'undefined') {
-                cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.BUILDER_STATUS_UPDATED);
-            }
-            return true;
-        }
-        cc.warn("BuilderManager: No free builders to assign to buildingIndex: " + buildingIndex);
-        return false;
-    },
-
-    getBuildingToFinishForFreeBuilder: function() {
-        cc.log("BuilderManager: getBuildingToFinishForFreeBuilder called.");
-        if (typeof BUILDING_STATES !== 'undefined') {
-            cc.log("BuilderManager: BUILDING_STATES.CONSTRUCTING = " + BUILDING_STATES.CONSTRUCTING + ", BUILDING_STATES.UPGRADING = " + BUILDING_STATES.UPGRADING);
-        } else {
-            cc.error("BuilderManager: BUILDING_STATES is undefined in getBuildingToFinishForFreeBuilder!");
-            return null;
-        }
-
-        let targetBuilding = null;
-        let minRemainingTime = Infinity;
-        const allBuildings = this.buildingsManager.getAllBuildings();
-        const now = Math.floor(Date.now() / 1000);
-
-        if (!allBuildings || allBuildings.length === 0) {
-            cc.warn("BuilderManager: No buildings returned from buildingsManager.getAllBuildings().");
-        }
-
-        for (var buildingIndexKey in this.busyBuilders) {
-            const building = allBuildings.find(b => b.buildingIndex == buildingIndexKey);
-
-            if (!building) {
-                cc.warn("BuilderManager: Could not find building object for index: " + buildingIndexKey + " in allBuildings list.");
-                continue;
-            }
-
-            const isCorrectState = (building.buildingState === BUILDING_STATES.CONSTRUCTING || building.buildingState === BUILDING_STATES.UPGRADING);
-            const isTimeValid = (typeof building.finishBuildingTime === 'number' && building.finishBuildingTime > now);
-
-            if (isCorrectState && isTimeValid) {
-                const remainingTime = building.finishBuildingTime - now;
-                if (remainingTime < minRemainingTime) {
-                    minRemainingTime = remainingTime;
-                    targetBuilding = building;
-                    cc.log("BuilderManager: New best candidate to rush: " + building.buildingType + " with remaining time: " + remainingTime);
+    onBuildingOperationComplete: function(completedAsset) {
+        var builderId = this.getBuilderIdForTask(completedAsset);
+        if (builderId !== -1) {
+            var builderInstance = this._builders[builderId];
+            if (builderInstance) {
+                var assignedHutIndex = this._builderHutAssignments[builderId];
+                var hut = this.buildingsManager.getBuildingByIndex(assignedHutIndex);
+                if (hut) {
+                    builderInstance.returnToHutAndHide(hut);
+                } else {
+                    builderInstance.stopAllActionsAndHide();
                 }
-            } else {
-                cc.log("BuilderManager: Building " + building.buildingType + " is NOT a candidate to rush. Reasons: CorrectState=" + isCorrectState + ", TimeValid=" + isTimeValid);
             }
         }
-
-        if (targetBuilding) {
-            cc.log("BuilderManager: Selected building to rush: " + targetBuilding.buildingType);
-        } else {
-            cc.log("BuilderManager: No suitable building found to rush after checking all busy builders.");
-        }
-        return targetBuilding;
+        this.freeBuilderFromTask(completedAsset);
     },
 
-    requestBuildUpgrade: function (building, isNewConstruction, mainUIInstance) {
-        if (building.buildingType === "BDH_1") {
-            return {
-                success: true,
-                builderAssigned: false,
-                reason: "builder's hut does not need a builder to be built."
-            };
-        }
-
-        if (this.getFreeBuildersCount() > 0) {
-            if (this.assignBuilderToTask(building) !== -1) {
-                return { success: true, builderAssigned: true };
+    _handleBuildingMoved: function(event) {
+        var movedBuilding = event.getUserData().building;
+        var builderId = this.getBuilderIdForTask(movedBuilding);
+        if (builderId !== -1 && this._builders[builderId]) {
+            var builderInstance = this._builders[builderId];
+            if (builderInstance.builderState === BUILDER_STATE.WORKING && builderInstance.targetBuilding === movedBuilding) {
+                builderInstance.stopAllActions();
+                builderInstance.startMovingToBuilding(builderInstance.getPosition(), movedBuilding);
             }
-
-            return {
-                success: false,
-                builderAssigned: false,
-                reason: "Failed to assign builder unexpectedly."
-            };
-        }
-
-        this.pendingBuildUpgradeRequest = {
-            building: building,
-            isNewConstruction: isNewConstruction
-        };
-        cc.log("BuilderManager: No free builders. Pending request for " + building.buildingType + " index " + building.buildingIndex);
-
-        var buildingToRush = this.getBuildingToFinishForFreeBuilder();
-        if (!buildingToRush) {
-            cc.log("BuilderManager: No free builders, and no specific building identified to rush at this moment.");
-            return {
-                success: false,
-                builderAssigned: false,
-                reason: "No free builders, and no rushable building found."
-            };
-        }
-
-        var now = Math.floor(Date.now() / 1000);
-        var remainingTime = 0;
-
-        if (typeof buildingToRush.finishBuildingTime === 'number' && buildingToRush.finishBuildingTime > now) {
-            remainingTime = buildingToRush.finishBuildingTime - now;
-        }
-
-        var popupConfig = {
-            type: "FREE_BUILDER",
-            targetToRush: buildingToRush,
-            amount: remainingTime,
-            resource: "TIME",
-            mainUIInstance: mainUIInstance,
-            originalTargetBuildingType: building.buildingType,
-            pendingBuildRequest: this.pendingBuildUpgradeRequest
-        };
-
-        return {
-            success: false,
-            builderAssigned: false,
-            reason: "No free builders.",
-            showPopup: true,
-            popupConfig: popupConfig
-        };
-    },
-
-    _processPendingRequest: function() {
-        if (this.pendingBuildUpgradeRequest && this.getFreeBuildersCount() > 0) {
-            const request = this.pendingBuildUpgradeRequest;
-            this.pendingBuildUpgradeRequest = null;
-
-            cc.log("BuilderManager: A builder is now free. Notifying listeners for pending request: " + request.building.buildingType);
-
-            cc.eventManager.dispatchCustomEvent("PENDING_BUILD_REQUEST_APPROVED", {
-                building: request.building,
-                isNewConstruction: request.isNewConstruction
-            });
-        }
-    },
-
-
-    cancelOrRollbackAssignment: function(asset) {
-        if (typeof asset.buildingIndex !== 'undefined' && this.busyBuilders.hasOwnProperty(asset.buildingIndex)) {
-            delete this.busyBuilders[asset.buildingIndex];
-            cc.log("BuilderManager: Rolled back builder assignment for buildingIndex: " + asset.buildingIndex);
-            if (typeof cc.eventManager !== 'undefined') {
-                cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.BUILDER_STATUS_UPDATED);
-            }
-        }
-    },
-
-    cancelPendingBuildUpgradeRequest: function() {
-        if (this.pendingBuildUpgradeRequest) {
-            cc.log("BuilderManager: Cancelling pending build/upgrade request for " + this.pendingBuildUpgradeRequest.building.buildingType);
-            this.pendingBuildUpgradeRequest = null;
         }
     },
 
     repopulateBusyBuildersFromLogin: function() {
-        cc.log("BuilderManager: Repopulating busy builders from login data.");
         this.busyBuilders = {};
         this._builderHutAssignments = {};
+        var allAssets = BuildingsManager.getInstance().getAllBuildings();
+        if (!allAssets) return;
 
-        var allBuildings = BuildingsManager.getInstance().getAllBuildings();
-        if (!allBuildings) {
-            cc.warn("BuilderManager: Cannot repopulate builders, BuildingsManager has no buildings.");
-            return;
-        }
+        var operationalHuts = allAssets.filter(function(b) { return b.buildingType === "BDH_1" && b.buildingState === BUILDING_STATES.OPERATING; });
+        var hutIndex = 0;
 
-        const operationalHuts = this.buildingsManager.getAllBuildings().filter(b => b.buildingType === "BDH_1" && b.buildingState === BUILDING_STATES.OPERATING);
-        let hutIndex = 0;
-
-        for (var i = 0; i < allBuildings.length; i++) {
-            var building = allBuildings[i];
-            if (building.buildingState === BUILDING_STATES.CONSTRUCTING || building.buildingState === BUILDING_STATES.UPGRADING) {
-                if (typeof building.buildingIndex !== 'undefined') {
+        for (var i = 0; i < allAssets.length; i++) {
+            var asset = allAssets[i];
+            if (asset.buildingState === BUILDING_STATES.CONSTRUCTING || asset.buildingState === BUILDING_STATES.UPGRADING) {
+                var assetKey = this._getAssetKey(asset);
+                if (assetKey) {
                     var builderId = this.findFreeBuilderId();
-                    if (builderId !== -1) {
-                        this.busyBuilders[building.buildingIndex] = builderId;
-                        cc.log("BuilderManager: Re-assigned Builder #" + builderId + " to buildingIndex: " + building.buildingIndex);
-
+                    if (builderId !== -1 && !this.busyBuilders[assetKey]) {
+                        this.busyBuilders[assetKey] = builderId;
                         if (operationalHuts.length > 0) {
-                            const assignedHut = operationalHuts[hutIndex % operationalHuts.length];
+                            var assignedHut = operationalHuts[hutIndex % operationalHuts.length];
                             this._builderHutAssignments[builderId] = assignedHut.buildingIndex;
-                            cc.log("BuilderManager: Assigned Builder #" + builderId + " to Hut " + assignedHut.buildingIndex + " during repopulation.");
                             hutIndex++;
-                        } else {
-                            cc.warn("BuilderManager: No operational builder huts available to assign during repopulation for buildingIndex: " + building.buildingIndex);
                         }
-                    } else {
-                        cc.warn("BuilderManager: Could not find a free builder ID to re-assign during login for buildingIndex: " + building.buildingIndex);
                     }
                 }
             }
@@ -444,24 +451,19 @@ var BuilderManager = cc.Class.extend({
     },
 
     createAndDisplayBuilderVisuals: function() {
-        cc.log("BuilderManager: Creating and displaying builder visuals for " + Object.keys(this.busyBuilders).length + " tasks.");
         for (var buildingIndex in this.busyBuilders) {
             if (this.busyBuilders.hasOwnProperty(buildingIndex)) {
                 var builderId = this.busyBuilders[buildingIndex];
                 var building = this.buildingsManager.getBuildingByIndex(buildingIndex);
                 var hut = this.buildingsManager.getBuildingByIndex(this._builderHutAssignments[builderId]);
-
                 if (building && hut) {
                     this.requestBuilderForBuilding(building, hut);
-                } else {
-                    cc.warn("BuilderManager: Could not find building or hut for builder " + builderId + " task on building " + buildingIndex);
                 }
             }
         }
     },
 
     cleanupAllBuildersVisuals: function() {
-        cc.log("BuilderManager: Cleaning up all builder visuals.");
         for (var builderId in this._builders) {
             if (this._builders.hasOwnProperty(builderId)) {
                 var builderInstance = this._builders[builderId];

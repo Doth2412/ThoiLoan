@@ -357,7 +357,8 @@ var BuildingsManager = cc.Class.extend({
         this.startRemoveObstacle(data.target);
     },
 
-    updateObstacles: function (dt) {},
+    updateObstacles: function (dt) {
+    },
 
     onObstacleRemovalComplete: function (obstacle) {
         if (!obstacle) return;
@@ -439,9 +440,9 @@ var BuildingsManager = cc.Class.extend({
         }
         foundBuilding.compositeNode.setLocalZOrder(newZOrder);
         if (foundBuilding.buildingType.indexOf("AMC") === 0) {
-            cc.eventManager.dispatchCustomEvent("ARMY_CAMP_MOVED", { building: foundBuilding });
+            cc.eventManager.dispatchCustomEvent("ARMY_CAMP_MOVED", {building: foundBuilding});
         }
-        cc.eventManager.dispatchCustomEvent("BUILDING_MOVED", { building: foundBuilding });
+        cc.eventManager.dispatchCustomEvent("BUILDING_MOVED", {building: foundBuilding});
     },
 
     canPlaceBuildingAt: function (buildingIndex, targetGridX, targetGridY) {
@@ -587,10 +588,10 @@ var BuildingsManager = cc.Class.extend({
         }
     },
 
-    startRemoveObstacle: function(obstacle){
-        if (BuilderManager.getInstance().assignBuilderToTask(obstacle) !== -1){
+    startRemoveObstacle: function (obstacle) {
+        if (BuilderManager.getInstance().assignBuilderToTask(obstacle) !== -1) {
             var config = ItemConfigUtils.getBuildingConfig({buildingType: obstacle.obstacleType})
-            if (!config|| typeof config.buildTime === 'undefined') {
+            if (!config || typeof config.buildTime === 'undefined') {
                 return;
             }
             var cost = config.gold || config.elixir || 0;
@@ -687,7 +688,8 @@ var BuildingsManager = cc.Class.extend({
         return 0; // Return a default value if not found
     },
 
-    update: function (dt) {},
+    update: function (dt) {
+    },
 
     updateResourceGenerators: function () {
         return this.resourceGeneratorManager.updateResourceGenerators();
@@ -713,6 +715,7 @@ var BuildingsManager = cc.Class.extend({
     harvestAllResources: function () {
         return this.resourceGeneratorManager.harvestAllResources();
     },
+
     finishConstructionInstantly: function (buildingAsset) {
         gv.testnetwork.connector.sendBuildComplete(buildingAsset.buildingType, buildingAsset.buildingIndex);
         if (this.buildingType === "AMC_1") cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.ARMY_STATUS_UPDATED, {})
@@ -757,6 +760,7 @@ var BuildingsManager = cc.Class.extend({
         }
         return null;
     },
+
     findArmyCampHasTroop: function (troop) {
         for (var i = 0; i < this.placedBuildings.length; i++) {
             var building = this.getBuildingByIndex(i);
@@ -769,6 +773,12 @@ var BuildingsManager = cc.Class.extend({
     getBuildingByIndex: function (buildingIndex) {
         return this.placedBuildings[buildingIndex];
     },
+
+    getObstacleByIndex: function (obstacleIndex) {
+        // Trả về đối tượng vật cản từ mảng `placedObstacles` dựa trên index
+        return this.placedObstacles[obstacleIndex];
+    },
+
     getTotalHousingSpace: function () {
         let totalHousingSpace = 0;
         for (let i = 0; i < this.placedBuildings.length; i++) {

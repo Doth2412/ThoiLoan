@@ -35,7 +35,6 @@ var UpgradeBuildingLayer = cc.Layer.extend({
     onEnter: function() {
         this._super();
 
-        // Sửa lại background để phủ kín toàn bộ màn hình
         var glView = cc.director.getOpenGLView();
         var frameSize = glView.getFrameSize();
 
@@ -56,7 +55,6 @@ var UpgradeBuildingLayer = cc.Layer.extend({
         this._super();
     },
 
-    // --- LOGIC RESPONSIVE ---
     _updateLayout: function() {
         if (!this.uiContainerNode) return;
 
@@ -85,7 +83,6 @@ var UpgradeBuildingLayer = cc.Layer.extend({
         }
     },
 
-    // --- CÁC HÀM CŨ GIỮ NGUYÊN ---
     _setupUIElements: function () {
         this.backgroundImage = ccui.helper.seekWidgetByName(this.uiContainerNode,"backGroundImage");
         this.topViewPanel = ccui.helper.seekWidgetByName(this.uiContainerNode, "topViewPanel");
@@ -147,6 +144,8 @@ var UpgradeBuildingLayer = cc.Layer.extend({
         this.upgradeLabel.setContentSize(cc.size(topPanelSize.width * 0.8, this.upgradeLabel.getContentSize().height));
         this.closeButton.addClickEventListener(this.onCloseButtonClicked.bind(this));
         this.confirmUpgradeButton.loadTextures(res.button_png, res.button_press_png, res.button_png)
+        // Gán sự kiện cho nút ở đây
+        this.confirmUpgradeButton.addClickEventListener(this.onUpgradeButtonClicked.bind(this));
     },
 
     setTargetAsset: function (building) {
@@ -189,8 +188,6 @@ var UpgradeBuildingLayer = cc.Layer.extend({
         } else {
             this.notiText.setVisible(false);
         }
-
-        this.confirmUpgradeButton.addClickEventListener(this.onUpgradeButtonClicked.bind(this));
     },
 
     _updatePreviewImage: function(nextLevel) {
@@ -238,26 +235,35 @@ var UpgradeBuildingLayer = cc.Layer.extend({
         UIController.toggleUpgradeBuildingUI(this.mainUIInstance, null);
     },
 
+    // =================================================================
+    // HÀM ĐÃ ĐƯỢC TÁI CẤU TRÚC
+    // =================================================================
     onUpgradeButtonClicked: function() {
-        var canUpgrade = UpgradeBuildingController.validateUpgradeBuilding(this.currentBuilding.buildingIndex);
-        if (!canUpgrade) {
-            var costAndResourceType = UpgradeBuildingController.getCostAndResourceType(this.buildingNextLevelConfig);
-            var missingAmount = costAndResourceType.cost - PlayerDataManager.getInstance().getResourceAmount(costAndResourceType.resourceType);
-            var popupConfig = {
-                type: costAndResourceType.resourceType.toUpperCase(),
-                amount: missingAmount,
-                resource: costAndResourceType.resourceType,
-                target: this.currentBuilding,
-                mainUIInstance: this.mainUIInstance,
-                successCallback: this.onUpgradeButtonClicked.bind(this)
-            };
-            UIController.showUseGemPopupWithOptions(this.mainUIInstance, popupConfig);
+        if (!this.currentBuilding) {
+            cc.error("onUpgradeButtonClicked: currentBuilding is null.");
             return;
         }
-        // =================================================================
-        // SỬA Ở ĐÂY: Truyền this.mainUIInstance vào hàm của controller
-        UpgradeBuildingController.requestAndStartUpgrade(this.currentBuilding, this.mainUIInstance);
-        // =================================================================
+
+        // 1. Đóng UI nâng cấp ngay lập tức để người dùng thấy map
         this.onCloseButtonClicked();
+
+        // 2. Tạo actionConfig để gửi cho UseGController
+        const actionConfig = {
+            actionType: 'UPGRADE',
+            target: this.currentBuilding,
+            mainUIInstance: this.mainUIInstance,
+            onCancel: function() {
+                // Logic khi người dùng hủy popup (nếu cần)
+                // Ví dụ: có thể mở lại UI này hoặc chỉ đơn giản là không làm gì cả
+                cc.log("Upgrade action was canceled by user from gem popup.");
+                if (this.mainUIInstance.activeBuilding) {
+                    BuildingsController.getInstance().deActivateAsset(this.mainUIInstance, this.mainUIInstance.activeBuilding);
+                    this.mainUIInstance.activeBuilding = null;
+                }
+            }.bind(this)
+        };
+
+        // 3. Giao toàn bộ việc cho UseGController
+        UseGController.requestAction(actionConfig);
     }
 })

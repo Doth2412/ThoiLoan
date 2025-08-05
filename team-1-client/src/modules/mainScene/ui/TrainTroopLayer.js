@@ -5,7 +5,7 @@ const troopData = [
 
 var TrainTroopLayer = cc.Layer.extend({
     // --- UI ELEMENT PROPERTIES ---
-    uiContainerNode: null, // Node được load từ JSON
+    uiContainerNode: null,
     backGround: null,
     backButton: null,
     closeButton: null,
@@ -42,9 +42,8 @@ var TrainTroopLayer = cc.Layer.extend({
     onEnter: function() {
         this._super();
 
-        // --- SỬA LỖI BACKGROUND ĐEN MỜ ---
         var glView = cc.director.getOpenGLView();
-        var frameSize = glView.getFrameSize(); // Lấy kích thước viewport thực tế
+        var frameSize = glView.getFrameSize();
 
         var backgroundOverlay = new ccui.Layout();
         backgroundOverlay.setContentSize(frameSize);
@@ -65,7 +64,6 @@ var TrainTroopLayer = cc.Layer.extend({
         this._super();
     },
 
-    // --- LOGIC RESPONSIVE ---
     _updateLayout: function() {
         if (!this.uiContainerNode) return;
 
@@ -94,7 +92,6 @@ var TrainTroopLayer = cc.Layer.extend({
         }
     },
 
-    // --- CÁC HÀM CŨ GIỮ NGUYÊN ---
     _addEventListeners: function() {
         this._barrackUpdateListener = cc.EventListener.create({
             event: cc.EventListener.CUSTOM,
@@ -224,7 +221,7 @@ var TrainTroopLayer = cc.Layer.extend({
             troopSlot.addClickEventListener(function (sender) {
                 var isSlotEnabled = this._isTroopTrainable(sender.troopType, this.currentBarrackObject);
                 if (isSlotEnabled) {
-                    this.addTroopToQueue(sender.troopType);
+                    this.onTrainTroopClicked(sender.troopType); // <-- THAY ĐỔI Ở ĐÂY
                 }
             }.bind(this));
 
@@ -339,32 +336,23 @@ var TrainTroopLayer = cc.Layer.extend({
         }
     },
 
-    addTroopToQueue: function (troopType) {
+    // =================================================================
+    // HÀM ĐÃ ĐƯỢC TÁI CẤU TRÚC
+    // =================================================================
+    onTrainTroopClicked: function (troopType) {
         if (!this.currentBarrackObject) return;
-        var playerDataManager = PlayerDataManager.getInstance();
-        var troopConfig = ItemConfigUtils.getTroopConfig(troopType);
-        var cost = troopConfig.trainingElixir;
-        if (playerDataManager.getResourceAmount("oil") < cost) {
-            cc.log("TrainTroopLayer: Not enough oil. Showing Use Gem popup.");
-            
-            var missingAmount = cost - playerDataManager.getResourceAmount("oil");
-            var popupConfig = {
-                type: "OIL",
-                amount: missingAmount,
-                resource: "oil",
-                mainUIInstance: this.mainUIInstance,
-                successCallback: this.addTroopToQueue.bind(this, troopType)
-            };
-            
-            if (this.mainUIInstance && this.mainUIInstance.useGemPopupUINode) {
-                UIController.showUseGemPopupWithOptions(this.mainUIInstance, popupConfig);
+
+        const actionConfig = {
+            actionType: 'TRAIN_TROOP',
+            target: this.currentBarrackObject,
+            payload: { troopType: troopType },
+            mainUIInstance: this.mainUIInstance,
+            onCancel: () => {
+                cc.log("Train troop action canceled by user.");
             }
-            return; // Stop here until the player buys resources or cancels.
-        }
-        var wasAdded = this.currentBarrackObject.addTroopToQueue(troopType);
-        if (wasAdded) {
-            playerDataManager.subtractResources("oil", cost);
-        }
+        };
+
+        UseGController.requestAction(actionConfig);
     },
 
     removeTroopFromQueue: function (troopType) {

@@ -287,8 +287,21 @@ var MainHUDLayer = cc.Layer.extend({
     },
 
     _onResourceUpdated: function (event) {
-        const resourceData = event.getUserData();
-        this.updateResourceBar(resourceData.resourceType);
+        var eventData = event.getUserData();
+        this.goldAmountLabel.setString(parseInt(eventData.gold).toString());
+        this.elixirAmountLabel.setString(parseInt(eventData.oil).toString());
+        this.gemAmountLabel.setString(parseInt(eventData.gem).toString());
+
+        // Cập nhật các thanh progress bar
+        var goldCapacity = PlayerDataManager.getInstance().getResourceCapacity('gold');
+        if (this.goldProgress) {
+            this.goldProgress.setPercentage(goldCapacity > 0 ? (eventData.gold / goldCapacity) * 100 : 0);
+        }
+
+        var oilCapacity = PlayerDataManager.getInstance().getResourceCapacity('oil');
+        if (this.elixirProgress) { // Tên biến trong code của bạn là elixirProgress
+            this.elixirProgress.setPercentage(oilCapacity > 0 ? (eventData.oil / oilCapacity) * 100 : 0);
+        }
     },
 
     updateResourceBar: function (resourceType) {

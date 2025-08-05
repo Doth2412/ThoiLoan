@@ -104,18 +104,6 @@ var PlayerDataManager = cc.Class.extend({
 
     },
 
-    updateWithUseGData: function(useGPacket) {
-        if (!useGPacket.success) {
-            return;
-        }
-
-        // Update resource totals
-        this.playerData.gold = useGPacket.updatedResources.gold;
-        this.playerData.oil = useGPacket.updatedResources.oil;
-        this.playerData.gem = useGPacket.updatedResources.gem;
-
-    },
-
     /**
      * Get current amount of a specific resource
      * @param {string} resourceType - Resource type ("gold", "oil", "gem")
@@ -325,13 +313,19 @@ var PlayerDataManager = cc.Class.extend({
         }
     },
 
-    notifyResourceUpdate: function(resourceType) {
+    notifyResourceUpdate: function(resourceType) { // resourceType giờ chỉ mang tính tham khảo
         if (typeof cc.eventManager !== 'undefined') {
-            cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.RESOURCE_UPDATED, {
-                resourceType: resourceType,
-            });
+            var eventData = {
+                gold: this.getResourceAmount('gold'),
+                oil: this.getResourceAmount('oil'),
+                gem: this.getResourceAmount('gem'),
+                updatedType: resourceType // Giữ lại thông tin về loại tài nguyên vừa thay đổi nếu cần
+            };
+
+            cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.RESOURCE_UPDATED, eventData);
         }
     },
+
     notifyBuilderUpdate: function(builderUsed) {
         if (typeof cc.eventManager !== 'undefined') {
             cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.BUILDER_STATUS_UPDATED, {
