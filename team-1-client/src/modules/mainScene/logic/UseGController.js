@@ -40,6 +40,9 @@ var UseGController = {
             } else if (config.elixir > 0) {
                 cost = config.elixir;
                 resourceType = 'oil';
+            } else if (config.gem > 0) {
+                cost = config.gem;
+                resourceType = 'gem';
             }
         }
         return { cost: cost, resourceType: resourceType, needsBuilder: needsBuilder, config: config };

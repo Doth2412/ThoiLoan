@@ -166,12 +166,19 @@ var BuyBuildingController = {
 
     finishConstructingBuilding: function (building) {
         if (!building) return;
+        building.isInBuyingPhase = false;
         if (typeof building.level === 'undefined' || building.level === null || building.level === 0) {
             building.level = 1;
         }
         building.setState(BUILDING_STATES.OPERATING);
         BuildingsManager.getInstance().toggleUpgradingIndicator(building, false);
-        BuilderManager.getInstance().onBuildingOperationComplete(building);
+        if (building.buildingType === "BDH_1") {
+            if (typeof cc.eventManager !== 'undefined') {
+                cc.eventManager.dispatchCustomEvent(PLAYER_DATA_EVENTS.BUILDER_STATUS_UPDATED);
+            }
+        } else {
+            BuilderManager.getInstance().onBuildingOperationComplete(building);
+        }
         PlayerDataManager.getInstance().notifyResourceUpdate("gold");
         PlayerDataManager.getInstance().notifyResourceUpdate("oil");
         if (typeof PlayerDataManager !== 'undefined' && PlayerDataManager.getInstance().notifyBuildingUpdated) {

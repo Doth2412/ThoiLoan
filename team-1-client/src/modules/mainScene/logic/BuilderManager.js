@@ -110,12 +110,20 @@ var BuilderManager = cc.Class.extend({
             return;
         }
         if (requirements && !requirements.needsBuilder) {
-            UseGController._executeCoreAction(actionConfig);
+            this._executeConcreteAction(actionConfig, -1); // -1 vì không có thợ xây được gán
             return;
         }
         if (this.getFreeBuildersCount() > 0) {
             var builderId = this.assignBuilderToTask(actionConfig.target);
             this._executeConcreteAction(actionConfig, builderId);
+            var builderInstance = this._builders[builderId];
+            if (builderInstance) {
+                var assignedHutIndex = this._builderHutAssignments[builderId];
+                var hut = BuildingsManager.getInstance().getBuildingByIndex(assignedHutIndex);
+                if (hut) {
+                    builderInstance.startMovingToBuilding(hut.compositeNode.getPosition(), actionConfig.target);
+                }
+            }
         } else {
             var buildingToRush = this.getBuildingToFinishForFreeBuilder();
             if (!buildingToRush) {
@@ -161,6 +169,29 @@ var BuilderManager = cc.Class.extend({
                 cc.log("BuilderManager: Started UPGRADE for " + target.buildingType);
                 break;
             case 'BUILD':
+                var buyBuildingController = BuyBuildingController;
+                if (target.buildingType === "BDH_1") {
+                    cc.log("BuilderManager: Instantly building a new Builder Hut.");
+                    BuyBuildingController.finishConstructingBuilding(target);
+                    if (buyBuildingController.placementIndicator && buyBuildingController.placementIndicator.getParent()) {
+                        buyBuildingController.placementIndicator.removeFromParent();
+                        buyBuildingController.placementIndicator = null;
+                    }
+                    if (mainScene && mainScene.hudLayerInstance) {
+                        mainScene.hudLayerInstance.setVisible(true);
+                    }
+                    if (typeof InputManager !== 'undefined' && InputManager.getInstance()) {
+                        InputManager.getInstance().setMode(INPUT_MODE.NONE);
+                    }
+                    if (mainScene.activeBuilding) {
+                        BuildingsController.getInstance().deActivateAsset(mainScene, mainScene.activeBuilding);
+                        mainScene.activeBuilding = null;
+                    }
+                    buyBuildingController.currentBuyingBuilding = null;
+
+                    // Dừng lại tại đây, không chạy logic xây dựng thông thường
+                    break;
+                }
                 target.setState(BUILDING_STATES.CONSTRUCTING);
                 target.startBuildingTime = Math.floor(Date.now() / 1000);
                 var config = ItemConfigUtils.getBuildingConfig(target, 1);
@@ -169,7 +200,6 @@ var BuilderManager = cc.Class.extend({
                 gv.testnetwork.connector.sendBuyBuildingRequest(target.buildingType, target.posX, target.posY);
                 cc.log("BuilderManager: Started BUILD for " + target.buildingType);
                 target.isInBuyingPhase = false;
-                var buyBuildingController = BuyBuildingController;
 
                 // Ẩn các nút xác nhận/hủy
                 if (buyBuildingController.placementIndicator && buyBuildingController.placementIndicator.getParent()) {
@@ -199,16 +229,7 @@ var BuilderManager = cc.Class.extend({
                 cc.log("BuilderManager: Started REMOVE_OBSTACLE for " + target.obstacleType);
                 break;
         }
-        var builderInstance = this._builders[builderId];
-        if (builderInstance) {
-            var assignedHutIndex = this._builderHutAssignments[builderId];
-            var hut = BuildingsManager.getInstance().getBuildingByIndex(assignedHutIndex);
-            if (hut) {
-                builderInstance.startMovingToBuilding(hut.compositeNode.getPosition(), target);
-            }
-        }
         if (actionConfig.mainUIInstance) {
-            var mainScene = actionConfig.mainUIInstance;
             if (mainScene.interactionPanel) mainScene.interactionPanel.hidePanel();
             if (mainScene.activeBuilding) {
                 BuildingsController.getInstance().deActivateAsset(mainScene, mainScene.activeBuilding);
